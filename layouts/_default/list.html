@@ -67,6 +67,9 @@
   {{- if (ne (.Param "hideSummary") true) }}
   <div class="entry-content">
     <p>{{ with .Params.englishTitle }}English title: {{ . }}<br>{{ end }}{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    {{- with .Params.shortAbstract }}
+    <p>{{ . }}</p>
+    {{- end }}
   </div>
   {{- end }}
   {{- if not (.Param "hideMeta") }}

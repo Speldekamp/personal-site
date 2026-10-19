@@ -4,7 +4,7 @@ date: 2014-12-10
 author: ["Daniël Speldekamp"]
 description: "Stichting LISA Nieuws, 2014, 30"
 englishTitle: "Change from Within"
-summary: "Subtitel: dynamiek en werkgelegenheid. / Subtitle: dynamics and employment."
+summary: "Subtitel: dynamiek en werkgelegenheid / dynamics and employment."
 editPost:
     URL: "https://www.lisa.nl/"
     Text: "Stichting LISA"

@@ -4,7 +4,7 @@ date: 2015-05-01
 author: ["Oedzge Atzema, Daniël Speldekamp, Kees Terlouw"]
 description: "Utrecht University (ESD2), 2014."
 englishTitle: "The Heuvelrug Kromme Rijn Region"
-summary: "Subtitel: over Complementariteit en Identiteit. / Subtitle: on complementarity and identity."
+summary: "Subtitel: over Complementariteit en Identiteit / on complementarity and identity."
 editPost:
     URL: "https://www.uu.nl/en/organisation/faculty-of-geosciences/collaboration/expertise-centre-for-urban-dynamics-and-sustainability"
     Text: "Utrecht University (ESD2)"
