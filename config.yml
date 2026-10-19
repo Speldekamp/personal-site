@@ -15,21 +15,33 @@ menu:
         - name: Papers
           url: papers/
           weight: 1
+          params:
+            icon: papers
         - name: Data
           url: data/
           weight: 2
+          params:
+            icon: data
         - name: Courses
           url: courses/
           weight: 3
+          params:
+            icon: courses
         - name: Code
           url: code/
           weight: 4
+          params:
+            icon: code
         - name: Blog
           url: blog/
           weight: 5
+          params:
+            icon: blog
         - name: About
           url: about/
           weight: 6
+          params:
+            icon: about
 
 params:
     description: "Research papers, data, courses, code and writing by [Your Name]."
