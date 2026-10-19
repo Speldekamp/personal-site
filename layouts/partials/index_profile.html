@@ -12,9 +12,9 @@
         {{- with .buttons }}
         <nav class="icon-nav" aria-label="Site sections">
             {{- range . }}
-            <a href="{{ trim .url " " | relURL }}" title="{{ .name }}">
-                {{- partial "nav_icon.html" .icon }}
-                <span class="visually-hidden">{{ .name }}</span>
+            <a href="{{ trim .url " " | relURL }}">
+                <span class="ring">{{- partial "nav_icon.html" .icon }}</span>
+                <span>{{ .name }}</span>
             </a>
             {{- end }}
         </nav>

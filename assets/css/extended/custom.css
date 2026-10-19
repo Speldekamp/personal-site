@@ -1,30 +1,73 @@
-/* Dark palette and type for the site. Edit colours here. */
+/*
+  Palette: three text/icon colours only. Edit them here.
+    --light  #f0ede6  name, titles, current section, hover
+    --mid    #c9c6bf  body text, links, front-page icons
+    --muted  #a3a6ad  roles, metadata, labels, footer
+  Everything else below is background or lines, never text.
+*/
 .dark {
+    --light: #f0ede6;
+    --mid: #c9c6bf;
+    --muted: #a3a6ad;
+
     --theme: #1b1c20;        /* page background: charcoal, not black */
-    --entry: #24262b;        /* cards and list entries */
-    --primary: #f0ede6;      /* headings */
-    --secondary: #a3a6ad;    /* muted text */
-    --tertiary: #3a3d44;     /* borders, icon rings */
-    --content: #c9c6bf;      /* body text */
+    --entry: #24262b;        /* cards, code blocks */
+    --tertiary: #3a3d44;     /* icon rings, strong lines */
+    --border: #2c2e34;       /* thin lines */
     --code-block-bg: #24262b;
     --code-bg: #2a2c32;
-    --border: #2c2e34;
-    --darkcolor: #8fb3a8;    /* accent */
-    --lightcolor: #8fb3a8;
-    --accent: #8fb3a8;
+
+    /* Theme variables mapped onto the three colours */
+    --primary: var(--light);
+    --content: var(--mid);
+    --secondary: var(--muted);
+    --gray: var(--muted);
+    --darkcolor: var(--muted);
+    --lightcolor: var(--border);
 }
 
-body {
+/* One font everywhere, code included */
+body,
+h1, h2, h3, h4, h5, h6,
+.post-title, .entry-header h2, .logo a,
+code, pre, kbd, samp, .chroma {
     font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
-h1, h2, h3, .post-title, .entry-header h2, .logo a {
-    font-family: 'Newsreader', Georgia, serif;
+h1, h2, h3, .post-title, .entry-header h2 {
     font-weight: 500;
 }
 
 .dark.list {
     background: var(--theme);
+}
+
+/* Lists, code and small UI text kept to the palette */
+.post-content li::marker,
+.toc li::marker {
+    color: var(--muted);
+}
+
+.post-content a {
+    color: var(--mid);
+}
+
+.post-content a:hover {
+    color: var(--light);
+}
+
+.post-content pre code,
+.post-content code,
+.chroma,
+.chroma * {
+    color: var(--mid) !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+}
+
+.copy-code {
+    color: var(--mid);
+    background: var(--tertiary);
 }
 
 /* Front page: centred column */
@@ -40,10 +83,10 @@ h1, h2, h3, .post-title, .entry-header h2, .logo a {
 }
 
 .profile .profile_inner h1 {
-    font-size: 2.75rem;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    color: var(--primary);
+    font-size: 2.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--light);
     margin-top: 28px;
 }
 
@@ -51,14 +94,14 @@ h1, h2, h3, .post-title, .entry-header h2, .logo a {
     margin-top: 10px;
     font-size: 15px;
     letter-spacing: 0.02em;
-    color: var(--secondary);
+    color: var(--muted);
 }
 
 .profile .bio {
     margin-top: 28px;
     font-size: 17px;
     line-height: 1.65;
-    color: var(--content);
+    color: var(--mid);
     max-width: 560px;
 }
 
@@ -66,45 +109,54 @@ h1, h2, h3, .post-title, .entry-header h2, .logo a {
     border: 1px solid var(--tertiary);
 }
 
-/* Icon links */
+/* Front-page icon links with labels underneath */
 .icon-nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
+    gap: 12px;
     margin-top: 40px;
 }
 
 .icon-nav a {
+    width: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    transition: color .15s ease;
+}
+
+.icon-nav .ring {
     width: 56px;
     height: 56px;
     border-radius: 50%;
     border: 1px solid var(--tertiary);
-    color: var(--accent);
+    color: var(--mid);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+    transition: border-color .15s ease, color .15s ease;
 }
 
-.icon-nav a:hover {
-    border-color: var(--accent);
-    color: var(--primary);
-    background: var(--entry);
+.icon-nav a:hover,
+.icon-nav a:focus-visible {
+    color: var(--mid);
+}
+
+.icon-nav a:hover .ring,
+.icon-nav a:focus-visible .ring {
+    border-color: var(--muted);
+    color: var(--light);
 }
 
 .icon-nav a:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--muted);
     outline-offset: 3px;
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
+    border-radius: 8px;
 }
 
 /* Footer */
@@ -112,18 +164,18 @@ h1, h2, h3, .post-title, .entry-header h2, .logo a {
     background: var(--theme);
     border-top: 1px solid var(--border);
     max-width: 640px;
-    color: var(--secondary);
+    color: var(--muted);
 }
 
 .footer a {
-    color: var(--secondary);
+    color: var(--muted);
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
 .footer a:hover {
     border-bottom: none;
-    color: var(--primary);
+    color: var(--mid);
 }
 
 /* Subpage header: aligned to the article column, icons above labels */
@@ -135,8 +187,9 @@ h1, h2, h3, .post-title, .entry-header h2, .logo a {
 }
 
 .logo a {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 19px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--light);
 }
 
 #menu {
@@ -145,7 +198,7 @@ h1, h2, h3, .post-title, .entry-header h2, .logo a {
 }
 
 #menu li + li {
-    margin-inline-start: 18px;
+    margin-inline-start: 14px;
 }
 
 #menu a {
@@ -156,7 +209,7 @@ h1, h2, h3, .post-title, .entry-header h2, .logo a {
     min-width: 44px;
     font-size: 12px;
     letter-spacing: 0.03em;
-    color: var(--secondary);
+    color: var(--muted);
     transition: color .15s ease;
 }
 
@@ -167,7 +220,7 @@ h1, h2, h3, .post-title, .entry-header h2, .logo a {
 
 #menu a:hover,
 #menu a:has(.active) {
-    color: var(--primary);
+    color: var(--light);
 }
 
 #menu .active {

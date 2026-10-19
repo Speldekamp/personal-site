@@ -25,3 +25,14 @@ editPost:
 ##### Citation
 
 [Author, A. 2026. "Title." *Journal* 1 (1): 1–20.]
+
+```bibtex
+@article{key2026,
+author = {[Your Name] and [Co-author]},
+year = {2026},
+title = {[Paper title]},
+journal = {[Journal name]},
+volume = {1},
+number = {1},
+pages = {1--20}}
+```
