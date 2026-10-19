@@ -1,6 +1,6 @@
-# hugo-website-acavar
+# personal-site
 
-An academic variant of [hugo-website](https://github.com/pmichaillat/hugo-website): a dark, minimalist personal academic site.
+Fork of [hugo-website-acavar](https://github.com/spoldov/hugo-website-acavar), which is an academic variant of [hugo-website](https://github.com/pmichaillat/hugo-website): a dark, minimalist personal academic site.
 
 Personal academic website, built with [Hugo](https://gohugo.io/) from Pascal Michaillat's [hugo-website](https://github.com/pmichaillat/hugo-website) template and the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme (both MIT; see `LICENSE.md` and `themes/PaperMod/LICENSE`).
 
