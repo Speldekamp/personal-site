@@ -24,6 +24,6 @@ English title (full title): Economic Strength of Utrecht: familiar and new persp
 
 English: This presentation sets familiar views of the regional economy against newer methods, giving a better picture of the knowledge economy and the role of competitiveness. It also addresses the changing economy itself, as well as the opportunities for local governments.
 
-Dutch: Subtitel: Vertrouwde en nieuwe zienswijzen op regionaal en lokaal economisch beleid. Vertrouwde zienswijzen van de regionale economie worden in deze presentatie afgezet tegen nieuwere methoden. Hiermee wordt een beter beeld gecreëerd van de kenniseconomie en de rol van competitiviteit. De veranderende economie wordt zelf ook geadresseerd, alsmede de kansen voor lokale overheden.
+Dutch: Vertrouwde zienswijzen van de regionale economie worden in deze presentatie afgezet tegen nieuwere methoden. Hiermee wordt een beter beeld gecreëerd van de kenniseconomie en de rol van competitiviteit. De veranderende economie wordt zelf ook geadresseerd, alsmede de kansen voor lokale overheden.
 
 ---
