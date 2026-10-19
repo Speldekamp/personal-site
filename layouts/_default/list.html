@@ -53,7 +53,7 @@
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
   <header class="entry-header">
     <h2 class="entry-hint-parent">
-      {{- .Title }}
+      {{- .Title }}{{ with .Params.subtitleNl }}: {{ . }}{{ end }}
       {{- if .Draft }}
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" fill="currentColor">
@@ -67,7 +67,9 @@
   {{- if (ne (.Param "hideSummary") true) }}
   <div class="entry-content">
     {{- if or .Params.englishTitle .Params.subtitleNl .Params.shortAbstract }}
-    <p>{{ with .Params.englishTitle }}English title: {{ . }}{{ end }}{{ with .Params.subtitleNl }}<br>Subtitel: {{ . }}{{ end }}{{ with .Params.subtitleEn }}<br>Subtitle: {{ . }}{{ end }}</p>
+    {{- with .Params.englishTitle }}
+    <p>English title:<br>{{ . }}{{ with $.Params.subtitleEn }}: {{ . }}{{ else }}.{{ end }}</p>
+    {{- end }}
     {{- with .Params.shortAbstract }}
     <p>{{ . }}</p>
     {{- end }}
