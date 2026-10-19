@@ -68,13 +68,13 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: "[Your Name]"
-          role: "[Position] · [Department], [University]"
-          subtitle: "[Two or three sentences on your research: what you study, the questions you care about, and where you work.]"
+          title: "Dr. Daniël Speldekamp"
+          role: "Assistant Professor, FEBRI Fellow & External Relations Coordinator · Faculty of Economics and Business · Innovation Management & Strategy · University of Groningen"
+          subtitle: "Specializing in businesses & their environment, innovation, "exceedingly vague algorithms" such as used in QCA (thanks, reviewer), and breaking stuff. A believer that universities can do more for their students, businesses, and society as a whole."
           # To add a photo: put photo.jpg in static/ and uncomment the next line.
           imageUrl: photo.jpg
-          imageWidth: 800
-          imageHeight: 1200
+          imageWidth: 128
+          imageHeight: 128
           # Front-page icon links. icon must be one of:
           # papers, data, courses, code, blog, about
           buttons:
