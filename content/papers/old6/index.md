@@ -19,7 +19,9 @@ editPost:
 
 ##### Abstract
 
-Uit analyses van de regionale bedrijvigheidsdynamiek in Nederland blijkt dat er veel nieuwe bedrijvigheid opkomt, maar dat deze onvoldoende structurele vernieuwing met zich meebrengt. Zo zijn er steeds meer zzp’ers (zelfstandigen zonder personeel) die meestal geen groeiambitie hebben. Dit zorgt voor minder concurrentie onder starters. Echter worden idealiter minder innovatieve activiteiten uit de markt verdrongen. Dit selectiemechanisme lijkt te haperen.
+English title (full title): Change from Within: dynamics and employment.
+
+Dutch: Uit analyses van de regionale bedrijvigheidsdynamiek in Nederland blijkt dat er veel nieuwe bedrijvigheid opkomt, maar dat deze onvoldoende structurele vernieuwing met zich meebrengt. Zo zijn er steeds meer zzp’ers (zelfstandigen zonder personeel) die meestal geen groeiambitie hebben. Dit zorgt voor minder concurrentie onder starters. Echter worden idealiter minder innovatieve activiteiten uit de markt verdrongen. Dit selectiemechanisme lijkt te haperen.
 
 Dit artikel is gebaseerd op mijn bachelorscriptie.
 

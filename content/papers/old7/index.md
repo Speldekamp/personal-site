@@ -18,7 +18,11 @@ editPost:
 
 ##### Abstract
 
-Eind 2013 heeft het Stimuleringsfonds voor de creatieve industrie een open oproep uitgeschreven
+English title (full title): MicRO: A Bottom-Up Exploration of Regional Dynamics.
+
+English: The cities of Tilburg, Maastricht and Enschede engaged us (through a grant from the Creative Industries Fund NL) to analyse the emergence of a completely new, much smaller-scale economic dynamic. We looked at where new businesses appeared, at address level, in order to inform qualitative research in the neighbourhoods concerned. Each city has a separate publication, and a final report is also available. The research grew out of a collaboration between bureau Nieuwe Gracht, buro Cerutti and ESD2 (Faculty of Geosciences, Utrecht University).
+
+Dutch: Eind 2013 heeft het Stimuleringsfonds voor de creatieve industrie een open oproep uitgeschreven
 onder de noemer ‘de attractieve regio’. Met deze oproep wil het Stimuleringsfonds ruimtelijk
 ontwerpen stimuleren in een tijd waarin ruimtelijke ordening laag op de agenda is komen te
 staan. Bovendien wordt geconstateerd dat het in veel regio’s ontbreekt aan richtinggevende
