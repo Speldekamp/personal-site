@@ -10,12 +10,6 @@ editPost:
     Text: "Utrecht University (ESD2)"
 ---
 
-##### Download
-
-+ [Article](https://www.lisa.nl/include/nl/lisanieuws/pdf/lisanieuws30.pdf) <!-- or paper.pdf and put paper.pdf in this folder -->
-
----
-
 ##### Abstract
 
 English title (full title): MicRO: A Bottom-Up Exploration of Regional Dynamics.
