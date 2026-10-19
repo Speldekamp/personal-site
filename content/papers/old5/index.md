@@ -4,7 +4,7 @@ date: 2015-06-01
 author: ["Oedzge Atzema, Han Olden, Olaf Koops, Daniël Speldekamp"]
 description: "Utrecht University (ESD2) & NEO Observatory, 2015."
 englishTitle: "Earning Capacity and Adaptability in the Noordvleugel"
-subtitleNl: "vervolgstudie op Quick Scan Regionale Clusters Utrecht - een objectieve vergelijking van regionale clusters"
+subtitleNl: "vervolgstudie op Quick Scan Regionale Clusters Utrecht: een objectieve vergelijking van regionale clusters"
 subtitleEn: "follow-up study to Quick Scan Regionale Clusters Utrecht - an objective comparison of regional clusters."
 editPost:
     URL: "https://www.uu.nl/en/organisation/faculty-of-geosciences/collaboration/expertise-centre-for-urban-dynamics-and-sustainability"
