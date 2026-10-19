@@ -1,0 +1,127 @@
+/* Dark palette and type for the site. Edit colours here. */
+.dark {
+    --theme: #1b1c20;        /* page background: charcoal, not black */
+    --entry: #24262b;        /* cards and list entries */
+    --primary: #f0ede6;      /* headings */
+    --secondary: #a3a6ad;    /* muted text */
+    --tertiary: #3a3d44;     /* borders, icon rings */
+    --content: #c9c6bf;      /* body text */
+    --code-block-bg: #24262b;
+    --code-bg: #2a2c32;
+    --border: #2c2e34;
+    --darkcolor: #8fb3a8;    /* accent */
+    --lightcolor: #8fb3a8;
+    --accent: #8fb3a8;
+}
+
+body {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+h1, h2, h3, .post-title, .entry-header h2, .logo a {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+}
+
+.dark.list {
+    background: var(--theme);
+}
+
+/* Front page: centred column */
+.main .profile {
+    justify-content: center;
+    text-align: center;
+}
+
+.profile .profile_inner {
+    align-items: center;
+    gap: 0;
+    max-width: 640px;
+}
+
+.profile .profile_inner h1 {
+    font-size: 2.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--primary);
+    margin-top: 28px;
+}
+
+.profile .role {
+    margin-top: 10px;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: var(--secondary);
+}
+
+.profile .bio {
+    margin-top: 28px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--content);
+    max-width: 560px;
+}
+
+.profile img {
+    border: 1px solid var(--tertiary);
+}
+
+/* Icon links */
+.icon-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.icon-nav a {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--tertiary);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+}
+
+.icon-nav a:hover {
+    border-color: var(--accent);
+    color: var(--primary);
+    background: var(--entry);
+}
+
+.icon-nav a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Footer */
+.footer {
+    background: var(--theme);
+    border-top: 1px solid var(--border);
+    max-width: 640px;
+    color: var(--secondary);
+}
+
+.footer a {
+    color: var(--secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer a:hover {
+    border-bottom: none;
+    color: var(--primary);
+}

@@ -1,0 +1,24 @@
+<div class="profile">
+    {{- with site.Params.profileMode }}
+    <div class="profile_inner">
+        {{- if .imageUrl }}
+        <img draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "Profile photo" }}"
+            height="{{ .imageHeight | default 128 }}" width="{{ .imageWidth | default 128 }}" />
+        {{- end }}
+        <h1>{{ .title | default site.Title | markdownify }}</h1>
+        {{- with .role }}<p class="role">{{ . | markdownify }}</p>{{ end }}
+        {{- with .subtitle }}<p class="bio">{{ . | markdownify }}</p>{{ end }}
+
+        {{- with .buttons }}
+        <nav class="icon-nav" aria-label="Site sections">
+            {{- range . }}
+            <a href="{{ trim .url " " | relURL }}" title="{{ .name }}">
+                {{- partial "nav_icon.html" .icon }}
+                <span class="visually-hidden">{{ .name }}</span>
+            </a>
+            {{- end }}
+        </nav>
+        {{- end }}
+    </div>
+    {{- end }}
+</div>
