@@ -123,6 +123,12 @@
         </div>
         {{- $currentPage := . }}
         <ul id="menu">
+            <li>
+                <a href="{{ "" | absLangURL }}" title="Home">
+                    {{- partial "nav_icon.html" "home" }}
+                    <span>Home</span>
+                </a>
+            </li>
             {{- range site.Menus.main }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
             {{- $page_url:= $currentPage.Permalink | absLangURL }}
