@@ -4,7 +4,7 @@ date: 2014-03-12
 author: ["Oedzge Atzema, Daniël Speldekamp"]
 description: "Economic Board Utrecht, 2014."
 englishTitle: "Economic Strength of Utrecht"
-subtitleNl: "Vertrouwde en nieuwe zienswijzen op regionaal en lokaal economisch beleid"
+subtitleNl: "vertrouwde en nieuwe zienswijzen op regionaal en lokaal economisch beleid"
 subtitleEn: "Familiar and new perspectives on regional and local economic policy."
 shortAbstract: "This presentation sets familiar views of the regional economy against newer methods, giving a better picture of the knowledge economy and the role of competitiveness. It also addresses the changing economy itself, as well as the opportunities for local governments."
 editPost:

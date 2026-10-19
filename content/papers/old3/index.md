@@ -3,7 +3,7 @@ title: "Report (Dutch): Het Aanpassingsvermogen van de Utrechtse Economie"
 date: 2014-12-10
 author: ["Han Olden, Nikolaas Sikkens, Daniël Speldekamp"]
 description: "Economic Board Utrecht, 2014."
-englishTitle: "The Adaptability of the Utrecht Economy"
+englishTitle: "The adaptability of Utrecht's economy"
 subtitleNl: "een kwantitatieve verkenning van de bedrijvigheidsdynamiek in vier deelregio’s van de provincie Utrecht"
 subtitleEn: "a quantitative exploration of business dynamics in four sub-regions of the province of Utrecht."
 editPost:

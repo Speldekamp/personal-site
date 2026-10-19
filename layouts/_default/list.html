@@ -68,7 +68,7 @@
   <div class="entry-content">
     {{- if or .Params.englishTitle .Params.subtitleNl .Params.shortAbstract }}
     {{- with .Params.englishTitle }}
-    <p>English title:<br>{{ . }}{{ with $page.Params.subtitleEn }}: {{ . }}{{ else }}.{{ end }}</p>
+    <p>English title: {{ . }}{{ with $page.Params.subtitleEn }}: {{ . }}{{ else }}.{{ end }}</p>
     {{- end }}
     {{- with .Params.shortAbstract }}
     <p>{{ . }}</p>
