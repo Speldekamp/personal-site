@@ -1,5 +1,5 @@
 ---
-title: "Article (Dutch): Verandering van binnenuit"
+title: "Article (Dutch): Verandering van Binnenuit"
 date: 2014-12-10
 author: ["Daniël Speldekamp"]
 description: "Stichting LISA Nieuws, 2014, 30"

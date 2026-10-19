@@ -1,5 +1,5 @@
 ---
-title: "Report (Dutch): Verdienvermogen en aanpassingsvermogen in de Noordvleugel"
+title: "Report (Dutch): Verdienvermogen en Aanpassingsvermogen in de Noordvleugel"
 date: 2015-06-01
 author: ["Oedzge Atzema, Han Olden, Olaf Koops, Daniël Speldekamp"]
 description: "Utrecht University (ESD2) & NEO Observatory, 2015."

@@ -3,7 +3,7 @@ title: "Managing Where You Are"
 date: 2023-03-01
 author: ["Joris Knoben", "Daniël Speldekamp", "Harm Hulshof"]
 description: "Industry and Innovation, 2023, 30(3), 311-335."
-summary: "Managers are important for innovation in businesses. In this study, we examine how their prior industry experience helps them to make the most of where they are. It matters greatly, with, for instance, firms in rural areas rarely innovating unless they have experienced managers."
+summary: "Managers are important for innovation in businesses. In this paper, we examine how their prior industry experience helps them to make the most of where they are. It matters greatly, with, for instance, firms in rural areas rarely innovating unless they have experienced managers."
 editPost:
     URL: "https://www.tandfonline.com/journals/ciai20"
     Text: "Industry and Innovation"

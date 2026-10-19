@@ -3,7 +3,7 @@ title: "Clusters and Firm-Level Innovation"
 date: 2020-04-01
 author: ["Daniël Speldekamp", "Joris Knoben", "Ayse Saka-Helmhout"]
 description: "Research Policy, 2020, 49(3), Article 103921."
-summary: "We investigate how geographical clustering, business networks, institutions, and firms' internal resources combine to influence innovation performance in the European aerospace industry. We identify seven pathways to innovation, and demonstrate that no single resource is sufficient for innovation. Important: different types of firms benefit from different sets of cluster conditions."
+summary: "This paper investigates how geographical clustering, business networks, institutions, and firms' internal resources combine to influence innovation performance in the European aerospace industry. We identify seven pathways to innovation, and demonstrate that no single resource is sufficient for innovation. Important: different types of firms benefit from different sets of cluster conditions."
 editPost:
     URL: "https://www.sciencedirect.com/journal/research-policy"
     Text: "Research Policy"

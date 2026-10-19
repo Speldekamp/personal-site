@@ -1,5 +1,5 @@
 ---
-title: "Presentation: Economische Kracht van Utrecht (Utrecht's Economic Power)"
+title: "Presentation (Dutch): Economische Kracht van Utrecht"
 date: 2014-03-12
 author: ["Oedzge Atzema, Daniël Speldekamp"]
 description: "Economic Board Utrecht, 2014."

@@ -1,5 +1,5 @@
 ---
-title: "More ways to Rome"
+title: "More Ways to Rome"
 date: 2025-07-22
 author: ["Daniël Speldekamp", "Joris Knoben", "Frank van Oort"]
 description: "The Oxford Handbook of Spatial Diversity and Business Economics, Oxford University Press, 2025, 372-393."

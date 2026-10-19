@@ -1,5 +1,5 @@
 ---
-title: "Report (Dutch): MicRO: Een Bottom-Up Verkenning van Regionale Dynamiek."
+title: "Report (Dutch): MicRO: Een Bottom-Up Verkenning van Regionale Dynamiek"
 date: 2016-04-01
 author: ["Boersma, J.H., Janssen, K., Keijsers, W., Tap, J.W., Cerutti, V., Atzema, O., Olden, H., Speldekamp, D."]
 description: "Utrecht University (ESD2), 2016."
