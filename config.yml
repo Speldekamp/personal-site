@@ -70,7 +70,7 @@ params:
           enabled: true
           title: "Dr. Daniël Speldekamp"
           role: "Assistant Professor, FEBRI Fellow & External Relations Coordinator · Faculty of Economics and Business · Innovation Management & Strategy · University of Groningen"
-          subtitle: "Specializing in businesses & their environment, innovation, \"exceedingly vague algorithms"\ such as used in QCA (thanks, reviewer), and breaking stuff. A believer that universities can do more for their students, businesses, and society as a whole."
+          subtitle: "Specializing in businesses & their environment, innovation, \"exceedingly vague algorithms\" such as used in QCA (thanks, reviewer), and breaking stuff. A believer that universities can do more for their students, businesses, and society as a whole."
           # To add a photo: put photo.jpg in static/ and uncomment the next line.
           imageUrl: photo.jpg
           imageWidth: 128
