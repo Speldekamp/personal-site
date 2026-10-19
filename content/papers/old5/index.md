@@ -3,7 +3,7 @@ title: "Report (Dutch): Verdienvermogen en Aanpassingsvermogen in de Noordvleuge
 date: 2015-06-01
 author: ["Oedzge Atzema, Han Olden, Olaf Koops, Daniël Speldekamp"]
 description: "Utrecht University (ESD2) & NEO Observatory, 2015."
-summary: "Vervolgstudie op Quick Scan Regionale Clusters Utrecht - een objectieve vergelijking van regionale clusters."
+summary: "Follow-up study to Quick Scan Regionale Clusters Utrecht - an objective comparison of regional clusters."
 editPost:
     URL: "https://www.uu.nl/en/organisation/faculty-of-geosciences/collaboration/expertise-centre-for-urban-dynamics-and-sustainability"
     Text: "Utrecht University (ESD2)"

@@ -3,7 +3,7 @@ title: "Report (Dutch): De Heuvelrug Kromme RijnStreek"
 date: 2015-05-01
 author: ["Oedzge Atzema, Daniël Speldekamp, Kees Terlouw"]
 description: "Utrecht University (ESD2), 2014."
-summary: "Subtitel: over Complementariteit en Identiteit."
+summary: "Subtitle: on complementarity and identity."
 editPost:
     URL: "https://www.uu.nl/en/organisation/faculty-of-geosciences/collaboration/expertise-centre-for-urban-dynamics-and-sustainability"
     Text: "Utrecht University (ESD2)"

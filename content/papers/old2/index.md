@@ -3,7 +3,7 @@ title: "Report (Dutch): Quick Scan Regionale Clusters Utrecht"
 date: 2014-07-01
 author: ["Oedzge Atzema, Olaf Koops, Walter Manshanden, Han Olden, Daniël Speldekamp"]
 description: "TNO/Utrecht University (ESD2), 2014."
-summary: "Subtitel: een objectieve vergelijking van regionale clusters."
+summary: "Subtitle: an objective comparison of regional clusters."
 editPost:
     URL: "https://www.uu.nl/en/organisation/faculty-of-geosciences/collaboration/expertise-centre-for-urban-dynamics-and-sustainability"
     Text: "TNO/Utrecht University (ESD2)"
