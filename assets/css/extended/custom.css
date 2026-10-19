@@ -31,7 +31,7 @@ body,
 h1, h2, h3, h4, h5, h6,
 .post-title, .entry-header h2, .logo a,
 code, pre, kbd, samp, .chroma {
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-family: 'Newsreader', Georgia, serif;
 }
 
 h1, h2, h3, .post-title, .entry-header h2 {
