@@ -103,7 +103,7 @@ params:
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "D. Speldekamp - Personal Website"
+      text: "Daniël's Site"
       icon: favicon.ico
       iconHeight: 18
 
