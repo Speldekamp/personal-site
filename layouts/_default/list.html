@@ -66,9 +66,13 @@
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
   <div class="entry-content">
-    <p>{{ with .Params.englishTitle }}English title: {{ . }}<br>{{ end }}{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    {{- if or .Params.englishTitle .Params.subtitleNl .Params.shortAbstract }}
+    <p>{{ with .Params.englishTitle }}English title: {{ . }}{{ end }}{{ with .Params.subtitleNl }}<br>Subtitel: {{ . }}{{ end }}{{ with .Params.subtitleEn }}<br>Subtitle: {{ . }}{{ end }}</p>
     {{- with .Params.shortAbstract }}
     <p>{{ . }}</p>
+    {{- end }}
+    {{- else }}
+    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
     {{- end }}
   </div>
   {{- end }}
