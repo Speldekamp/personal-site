@@ -351,3 +351,15 @@ h1, h2, h3, .post-title, .entry-header h2 {
     }
 }
 
+/* pageArt.edgetoedge: true -> no 750px limit, runs to the screen edges (More Ways to Rome) */
+.page-art-full.edge-to-edge {
+    left: 0;
+    right: 0;
+}
+
+/* pageArt.fit: "width" -> whole drawing width shown, anchored to the bottom, nothing cropped at the sides */
+.page-art-full.fit-width {
+    background-size: 100% auto;
+    background-position: 50% 100%;
+}
+

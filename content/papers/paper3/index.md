@@ -7,6 +7,7 @@ featured: true
 pageArt:
     full: bg-full.svg
     opacity: 0.22
+    fit: "width"
 summary: "This paper investigates how intermediaries connect firms and other actors within European aerospace clusters and how this contributes to cluster functioning."
 editPost:
     URL: "https://www.tandfonline.com/journals/cres20"

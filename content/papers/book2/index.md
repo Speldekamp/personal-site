@@ -6,6 +6,7 @@ description: "The Oxford Handbook of Spatial Diversity and Business Economics, O
 featured: true
 pageArt:
     full: bg-full.webp
+    edgetoedge: true
 summary: "In this book chapter we examine how geographical agglomeration affects firm productivity, recognizing that the benefits of locating near other economic activities vary across firms. It is a re-analysis of the impactful 2016 Environment and Planning A paper \"One firm’s medicine is another firm’s poison\". It uses a configurational perspective to uncover different combinations of agglomeration characteristics and firm-level conditions produce different productivity outcomes."
 editPost:
     URL: "https://doi.org/10.1093/oxfordhb/9780198866190.013.0023"
