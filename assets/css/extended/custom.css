@@ -363,3 +363,14 @@ h1, h2, h3, .post-title, .entry-header h2 {
     background-position: 50% 100%;
 }
 
+/* pageArt.fit: "contain" -> a single figure, whole and centred behind the text, at most 900px wide,
+   kept clear of the header */
+.page-art-full.fit-contain {
+    top: 80px;
+    bottom: 30px;
+    left: max(0px, calc(50vw - 450px));
+    right: max(0px, calc(50vw - 450px));
+    background-size: contain;
+    background-position: 50% 50%;
+}
+

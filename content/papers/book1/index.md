@@ -3,6 +3,10 @@ title: "Reconfiguring Clusters: From Contradictions to Pathways"
 date: 2021-01-01
 author: ["Daniël Speldekamp"]
 description: "PhD dissertation, Radboud University Nijmegen, 2021."
+pageArt:
+    full: bg-full.webp
+    opacity: 0.16
+    fit: "contain"
 summary: "It is impossible for me to summarize my PhD dissertation in a few sentences. Instead I will just list keywords: industrial clusters, geography, networks, institutions, configurational thinking and analysis."
 editPost:
     URL: "https://research.rug.nl/en/publications/reconfiguring-clusters-from-contradictions-to-pathways/"
