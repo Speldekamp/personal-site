@@ -40,5 +40,3 @@ compleet nieuwe, veel kleinschaliger economische dynamiek. Een dynamiek die al r
 eeuwwisseling is begonnen, sindsdien steeds sneller is toegenomen en die vooral tot uitdrukking
 komt in het aantal startende bedrijven. Hun aantal overtreft zelfs in deze tijden van crisis nog
 steeds ruimschoots het aantal bedrijven dat failliet gaat.
-
----

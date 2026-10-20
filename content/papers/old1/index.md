@@ -16,8 +16,6 @@ editPost:
 
 + [Presentation](https://www.economicboardutrecht.nl/sites/nl.economicboardutrecht.www/files/EBU-College-kracht-van-utrecht.pdf) <!-- or paper.pdf and put paper.pdf in this folder -->
 
----
-
 ##### Abstract
 
 English full title: Economic Strength of Utrecht: familiar and new perspectives on regional and local economic policy.
@@ -26,5 +24,3 @@ Dutch full title: Economische Kracht van Utrecht: vertrouwde en nieuwe zienswijz
 English: This presentation sets familiar views of the regional economy against newer methods, giving a better picture of the knowledge economy and the role of competitiveness. It also addresses the changing economy itself, as well as the opportunities for local governments.
 
 Dutch: Vertrouwde zienswijzen van de regionale economie worden in deze presentatie afgezet tegen nieuwere methoden. Hiermee wordt een beter beeld gecreëerd van de kenniseconomie en de rol van competitiviteit. De veranderende economie wordt zelf ook geadresseerd, alsmede de kansen voor lokale overheden.
-
----

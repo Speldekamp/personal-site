@@ -15,10 +15,6 @@ editPost:
 + [Vinci Blog (Dutch & English)](https://www.rug.nl/feb/organization/departments/ims/blog/het-is-goed-om-deel-uit-te-maken-van-een-cluster-maar-voor-wie-het-meest)
 + [Regional Studies Journal Blog](https://www.linkedin.com/pulse/good-cluster-whom-best-regional-studies-journal/)
 
----
-
 ##### Abstract
 
 This paper investigates which intermediary practices among European aerospace clusters support their diverse membership. Using a configurational approach, we find nine successful sets of practices spanning cluster members with varying levels of internal resources. We unpack important trade-offs, with no single approach to intermediation being ideal in every context. However, the presence of mutual trust is necessary, hinting that its importance in brokered networks has been understated by past research. Furthermore, equifinality exists even for similar types of members, suggesting the need for future research to be attentive to the existence of multiple viable approaches to cluster intermediation.
-
----
