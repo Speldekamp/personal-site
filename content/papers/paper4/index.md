@@ -3,6 +3,7 @@ title: "Managing Where You Are"
 date: 2023-03-01
 author: ["Joris Knoben", "Daniël Speldekamp", "Harm Hulshof"]
 description: "Industry and Innovation, 2023, 30(3), 311-335."
+featured: true
 pageArt:
     full: bg-full.svg
     opacity: 0.22
