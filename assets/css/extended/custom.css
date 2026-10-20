@@ -294,8 +294,8 @@ h1, h2, h3, .post-title, .entry-header h2 {
     left: -50px;
     top: -10px;
     width: 820px;
-    height: 268px;
-    background-size: 820px 268px;
+    height: 192px;
+    background-size: 820px 192px;
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: -1;
