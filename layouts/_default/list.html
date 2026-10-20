@@ -53,8 +53,8 @@
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
   <header class="entry-header">
     {{- if .Params.featured }}
-    {{- /* Key-paper star: 18px, slightly taller than the 16.5px capitals and centred on them (optical overshoot), 24px from the right edge */}}
-    <svg class="entry-star" role="img" aria-label="Key paper" width="18.69" height="18" viewBox="2.57 2.37 18.86 18.16" stroke-width="1.65" stroke-linejoin="round"><path d="M12 3.2L14.6 8.7L20.6 9.5L16.2 13.7L17.3 19.7L12 16.8L6.7 19.7L7.8 13.7L3.4 9.5L9.4 8.7Z"/></svg>
+    {{- /* Key-paper star: 15px, slightly taller than the 13.75px capitals of the 20px heading and centred on them (optical overshoot); same gap to the right edge as the heading has to the left */}}
+    <svg class="entry-star" role="img" aria-label="Key paper" width="15.58" height="15" viewBox="2.57 2.37 18.86 18.16" stroke-width="1.65" stroke-linejoin="round"><path d="M12 3.2L14.6 8.7L20.6 9.5L16.2 13.7L17.3 19.7L12 16.8L6.7 19.7L7.8 13.7L3.4 9.5L9.4 8.7Z"/></svg>
     {{- end }}
     <h2 class="entry-hint-parent{{ if .Params.featured }} has-star{{ end }}">
       {{- .Title }}{{ with .Params.subtitleNl }} - {{ . }}{{ end }}
