@@ -105,8 +105,9 @@ params:
         hiddenInSingle: true
     label:
       text: "Daniël's Site"
-      icon: favicon.ico
-      iconHeight: 18
+      hideText: true
+      icon: favicon.svg
+      iconHeight: 32
 
 markup:
     goldmark:

@@ -44,7 +44,7 @@
         <div class="logo">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }}">
+            <a href="{{ "" | absLangURL }}" accesskey="h" {{- if site.Params.label.hideText }} title="Home" aria-label="Home"{{ else }} title="{{ $label_text }}"{{ end }}>
                 {{- if site.Params.label.icon }}
                 {{- $img := resources.Get site.Params.label.icon }}
                 {{- if $img }}
@@ -71,7 +71,7 @@
                 {{- else if hasPrefix site.Params.label.iconSVG "<svg" }}
                     {{ site.Params.label.iconSVG | safeHTML }}
                 {{- end -}}
-                {{- $label_text -}}
+                {{- if not site.Params.label.hideText }}{{ $label_text }}{{ end -}}
             </a>
             {{- end }}
             <div class="logo-switches">
