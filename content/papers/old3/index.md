@@ -1,5 +1,5 @@
 ---
-title: "Report (Dutch): Het Aanpassingsvermogen van de Utrechtse Economie"
+title: "Het Aanpassingsvermogen van de Utrechtse Economie"
 date: 2014-12-10
 author: ["Han Olden, Nikolaas Sikkens, Daniël Speldekamp"]
 description: "Economic Board Utrecht, 2014."
@@ -19,9 +19,12 @@ editPost:
 
 ##### Abstract
 
-English title (full title): The adaptability of Utrecht's economy: a quantitative exploration of business dynamics in four sub-regions of the province of Utrecht.
+English full title: The adaptability of Utrecht's economy: a quantitative exploration of business dynamics in four sub-regions of the province of Utrecht.
+Dutch full title: Het aanpassingsvermogen van de Utrechtse economie: een kwantitatieve verkenning van de bedrijvigheidsdynamiek in vier deelregio’s van de provincie Utrecht.
 
-Dutch: De Economic Board Utrecht (EBU) heeft het Expertisecentrum Stedelijk Dynamiek en Duurzaamheid (ESD2, UU) gevraagd om voor vier stadsregio’s (Utrecht, Amersfoort, Woerden en Veenendaal) in de provincie Utrecht de veranderingen in de regionale economie in beeld te brengen voor de periode 1998-2013. Hierbij is gebruik gemaakt van het Provinciaal Arbeidsplaatsen Register (PAR).
+English: The Economic Board Utrecht (EBU) has asked the Expertise Centre for Urban Dynamics and Sustainability (ESD2, Utrecht University) to map the changes in the regional economy for four urban regions (Utrecht, Amersfoort, Woerden and Veenendaal) in the province of Utrecht for the period 1998-2013. For this purpose, use was made of the Provincial Employment Register (PAR).
+
+Dutch: De Economic Board Utrecht (EBU) heeft het Expertisecentrum Stedelijke Dynamiek en Duurzaamheid (ESD2, UU) gevraagd om voor vier stadsregio’s (Utrecht, Amersfoort, Woerden en Veenendaal) in de provincie Utrecht de veranderingen in de regionale economie in beeld te brengen voor de periode 1998-2013. Hierbij is gebruik gemaakt van het Provinciaal Arbeidsplaatsen Register (PAR).
 
 Uit het rapport blijkt ten eerste dat de ontwikkeling van werkgelegenheid in de provincie Utrecht stagneert. Na 2008 krimpt de werkgelegenheid, als gevolg van economische recessie, sneller dan elders in het land. De stadsregio Utrecht is na 2008, gemeten naar werkgelegenheid, het meest weerbaar. Ten tweede is het aantal bedrijven in Utrecht sneller gegroeid dan in de rest van Nederland. Dat wordt volledig veroorzaakt door de opkomst van zzp’ers. Worden die buiten de analyse gelaten, dan blijft de groei van het aantal bedrijven in Utrecht achter bij de landelijke trend.
 

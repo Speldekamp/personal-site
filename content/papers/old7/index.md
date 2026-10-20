@@ -1,5 +1,5 @@
 ---
-title: "Report (Dutch): MicRO: Een Bottom-Up Verkenning van Regionale Dynamiek"
+title: "MicRO: Een Bottom-Up Verkenning van Regionale Dynamiek"
 date: 2016-04-01
 author: ["Boersma, J.H., Janssen, K., Keijsers, W., Tap, J.W., Cerutti, V., Atzema, O., Olden, H., Speldekamp, D."]
 description: "Utrecht University (ESD2), 2016."
@@ -12,7 +12,8 @@ editPost:
 
 ##### Abstract
 
-English title (full title): MicRO: A Bottom-Up Exploration of Regional Dynamics.
+English full title: MicRO: A Bottom-Up Exploration of Regional Dynamics.
+Dutch full title: MicRO: Een Bottom-Up Verkenning van Regionale Dynamiek
 
 English: The cities of Tilburg, Maastricht and Enschede engaged us (through a grant from the Creative Industries Fund NL) to analyse the emergence of a completely new, much smaller-scale economic dynamic. We looked at where new businesses appeared, at address level, in order to inform qualitative research in the neighbourhoods concerned. Each city has a separate publication, and a final report is also available. The research grew out of a collaboration between bureau Nieuwe Gracht, buro Cerutti and ESD2 (Faculty of Geosciences, Utrecht University).
 

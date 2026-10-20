@@ -1,5 +1,5 @@
 ---
-title: "Presentation (Dutch): Economische Kracht van Utrecht"
+title: "Economische Kracht van Utrecht"
 date: 2014-03-12
 author: ["Oedzge Atzema, Daniël Speldekamp"]
 description: "Economic Board Utrecht, 2014."
@@ -20,7 +20,8 @@ editPost:
 
 ##### Abstract
 
-English title (full title): Economic Strength of Utrecht: familiar and new perspectives on regional and local economic policy.
+English full title: Economic Strength of Utrecht: familiar and new perspectives on regional and local economic policy.
+Dutch full title: Economische Kracht van Utrecht: vertrouwde en nieuwe zienswijzen op regionaal en lokaal economisch beleid.
 
 English: This presentation sets familiar views of the regional economy against newer methods, giving a better picture of the knowledge economy and the role of competitiveness. It also addresses the changing economy itself, as well as the opportunities for local governments.
 
