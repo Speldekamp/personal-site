@@ -41,6 +41,7 @@
 
 <header class="header">
     <nav class="nav">
+        {{- if not site.Params.label.hide }}
         <div class="logo">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
@@ -121,6 +122,7 @@
                 {{- end }}
             </div>
         </div>
+        {{- end }}
         {{- $currentPage := . }}
         <ul id="menu">
             <li>

@@ -104,10 +104,7 @@ params:
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "Daniël's Site"
-      hideText: true
-      icon: favicon.svg
-      iconHeight: 32
+      hide: true   # no site name or icon in the header
 
 markup:
     goldmark:
