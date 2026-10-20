@@ -263,7 +263,8 @@ h1, h2, h3, .post-title, .entry-header h2 {
 }
 
 .page-art-left {
-    left: 24px;
+    /* never more than 250px from the 720px text column, never closer than 24px to the screen edge */
+    left: max(24px, calc(50vw - 360px - 250px - 380px));
     top: 96px;
     width: 380px;
     height: 433px;
@@ -271,7 +272,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
 }
 
 .page-art-right {
-    right: 24px;
+    right: max(24px, calc(50vw - 360px - 250px - 400px));
     bottom: 48px;
     width: 400px;
     height: 250px;
@@ -291,10 +292,10 @@ h1, h2, h3, .post-title, .entry-header h2 {
 .title-band {
     position: absolute;
     left: -50px;
-    top: -14px;
+    top: -10px;
     width: 820px;
-    height: 156px;
-    background-size: 820px 156px;
+    height: 268px;
+    background-size: 820px 268px;
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: -1;
