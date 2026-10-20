@@ -1,7 +1,29 @@
 {{- define "main" }}
 
+{{- /* Optional page art (set per page in front matter, files in the page folder):
+       pageArt: {left: ..., right: ..., band: ...} (lower-case keys). Images load only on wide screens. */ -}}
+{{- $art := .Params.pageArt }}
+{{- $left := "" }}{{- $right := "" }}{{- $band := "" }}
+{{- with $art }}
+{{- with .left }}{{ with $.Resources.GetMatch . }}{{ $left = .RelPermalink }}{{ end }}{{ end }}
+{{- with .right }}{{ with $.Resources.GetMatch . }}{{ $right = .RelPermalink }}{{ end }}{{ end }}
+{{- with .band }}{{ with $.Resources.GetMatch . }}{{ $band = .RelPermalink }}{{ end }}{{ end }}
+<style>
+@media (min-width: 1181px) {
+{{- with $left }}{{ printf ".page-art-left{background-image:url(%q)}" . | safeCSS }}{{ end }}
+{{- with $right }}{{ printf ".page-art-right{background-image:url(%q)}" . | safeCSS }}{{ end }}
+}
+@media (min-width: 900px) {
+{{- with $band }}{{ printf ".title-band{background-image:url(%q)}" . | safeCSS }}{{ end }}
+}
+</style>
+{{- with $left }}<div class="page-art page-art-left" aria-hidden="true"></div>{{ end }}
+{{- with $right }}<div class="page-art page-art-right" aria-hidden="true"></div>{{ end }}
+{{- end }}
+
 <article class="post-single">
-  <header class="post-header">
+  <header class="post-header{{ with $band }} has-band{{ end }}">
+    {{- with $band }}<div class="title-band" aria-hidden="true"></div>{{ end }}
     {{ partial "breadcrumbs.html" . }}
     <h1 class="post-title entry-hint-parent">
       {{ .Title }}{{ with .Params.subtitleNl }} - {{ . }}{{ end }}

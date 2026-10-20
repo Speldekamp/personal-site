@@ -248,3 +248,61 @@ h1, h2, h3, .post-title, .entry-header h2 {
 #menu .active {
     border-bottom: none;
 }
+
+/* Page art (only on pages that set pageArt in front matter, e.g. papers/old7).
+   Faint fixed maps beside the text and a triangle band behind the title.
+   The images are only set inside wide-screen media queries, so phones never download them. */
+.page-art {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.16;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+}
+
+.page-art-left {
+    left: 24px;
+    top: 96px;
+    width: 380px;
+    height: 433px;
+    background-position: left top;
+}
+
+.page-art-right {
+    right: 24px;
+    bottom: 48px;
+    width: 400px;
+    height: 250px;
+    background-position: right bottom;
+}
+
+@media (min-width: 1181px) {
+    .page-art {
+        display: block;
+    }
+}
+
+.post-header.has-band {
+    position: relative;
+}
+
+.title-band {
+    position: absolute;
+    left: -50px;
+    top: -14px;
+    width: 820px;
+    height: 156px;
+    background-size: 820px 156px;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .title-band {
+        display: block;
+    }
+}
