@@ -72,7 +72,8 @@ params:
           role: "Assistant Professor, FEBRI Fellow & External Relations Coordinator · Faculty of Economics and Business · University of Groningen"
           subtitle: "Specializing in businesses & their environments, innovation, \"exceedingly vague algorithms\" such as used in QCA (thanks, reviewer), and breaking stuff. A believer that universities can do more for students, businesses, and society."
           # To add a photo: put photo.jpg in static/ and uncomment the next line.
-          imageUrl: photo.jpg
+          imageUrl: photo.svg
+          imageTitle: "Line drawing of a city skyline"
           imageWidth: 128
           imageHeight: 128
           # Front-page icon links. icon must be one of:
