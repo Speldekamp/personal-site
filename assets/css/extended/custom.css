@@ -312,18 +312,18 @@ h1, h2, h3, .post-title, .entry-header h2 {
 }
 
 /* Key-paper star on the papers list (front matter: featured: true).
-   Height = cap height of the 24px heading (0.679em = 16.3px); its top sits on the
-   capital line and its bottom on the baseline of the heading's first line. */
+   18px tall: about 1px above the capitals and 1px below the baseline of the 24px heading's
+   first line, centred on the capitals. A pointed star needs this overshoot to look as tall as the letters. */
 .entry-star {
     position: absolute;
     fill: var(--theme);      /* page charcoal inside */
     stroke: var(--primary);  /* heading colour outline */
-    top: calc(var(--gap) + 4.95px);
+    top: calc(var(--gap) + 4px);
     right: var(--gap);
 }
 
 .entry-header h2.has-star {
-    padding-inline-end: 30px;
+    padding-inline-end: 31px;
 }
 
 /* Full-window background map (pageArt.full), e.g. papers/book2. Fixed, faint, behind the text.
