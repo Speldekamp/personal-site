@@ -1,17 +1,21 @@
 {{- define "main" }}
 
 {{- /* Optional page art (set per page in front matter, files in the page folder):
-       pageArt: {left: ..., right: ..., band: ...} (lower-case keys). Images load only on wide screens. */ -}}
+       pageArt: {left: ..., right: ..., band: ..., full: ...} (lower-case keys). Images load only on wide screens. */ -}}
 {{- $art := .Params.pageArt }}
-{{- $left := "" }}{{- $right := "" }}{{- $band := "" }}
+{{- $left := "" }}{{- $right := "" }}{{- $band := "" }}{{- $full := "" }}
 {{- with $art }}
 {{- with .left }}{{ with $.Resources.GetMatch . }}{{ $left = .RelPermalink }}{{ end }}{{ end }}
 {{- with .right }}{{ with $.Resources.GetMatch . }}{{ $right = .RelPermalink }}{{ end }}{{ end }}
 {{- with .band }}{{ with $.Resources.GetMatch . }}{{ $band = .RelPermalink }}{{ end }}{{ end }}
+{{- with .full }}{{ with $.Resources.GetMatch . }}{{ $full = .RelPermalink }}{{ end }}{{ end }}
 <style>
 @media (min-width: 1181px) {
 {{- with $left }}{{ printf ".page-art-left{background-image:url(%q)}" . | safeCSS }}{{ end }}
 {{- with $right }}{{ printf ".page-art-right{background-image:url(%q)}" . | safeCSS }}{{ end }}
+}
+@media (min-width: 861px) {
+{{- with $full }}{{ printf ".page-art-full{background-image:url(%q)}" . | safeCSS }}{{ end }}
 }
 @media (min-width: 900px) {
 {{- with $band }}{{ printf ".title-band{background-image:url(%q)}" . | safeCSS }}{{ end }}
@@ -19,6 +23,7 @@
 </style>
 {{- with $left }}<div class="page-art page-art-left" aria-hidden="true"></div>{{ end }}
 {{- with $right }}<div class="page-art page-art-right" aria-hidden="true"></div>{{ end }}
+{{- with $full }}<div class="page-art-full" aria-hidden="true"></div>{{ end }}
 {{- end }}
 
 <article class="post-single">

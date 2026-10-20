@@ -326,3 +326,23 @@ h1, h2, h3, .post-title, .entry-header h2 {
     padding-inline-end: 30px;
 }
 
+/* Full-window background map (pageArt.full), e.g. papers/book2. Fixed, faint, behind the text.
+   Only loads and shows from 861px wide. */
+.page-art-full {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 70%;
+    display: none;
+}
+
+@media (min-width: 861px) {
+    .page-art-full {
+        display: block;
+    }
+}
+
