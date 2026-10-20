@@ -3,6 +3,7 @@ title: "Intermediation in European Aerospace Clusters"
 date: 2023-09-01
 author: ["Daniël Speldekamp", "Joris Knoben", "Ayse Saka-Helmhout"]
 description: "Regional Studies, 2023, 57(9), 1649-1665."
+featured: true
 pageArt:
     full: bg-full.svg
     opacity: 0.22
