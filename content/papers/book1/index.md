@@ -3,6 +3,7 @@ title: "Reconfiguring Clusters: From Contradictions to Pathways"
 date: 2021-01-01
 author: ["Daniël Speldekamp"]
 description: "PhD dissertation, Radboud University Nijmegen, 2021."
+featured: true
 pageArt:
     full: bg-full.webp
     opacity: 0.16
