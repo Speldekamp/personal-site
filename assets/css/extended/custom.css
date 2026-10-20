@@ -327,11 +327,15 @@ h1, h2, h3, .post-title, .entry-header h2 {
     padding-inline-end: 28px;
 }
 
-/* Full-window background map (pageArt.full), e.g. papers/book2. Fixed, faint, behind the text.
-   Only loads and shows from 861px wide. */
+/* Full-window background map (pageArt.full), e.g. papers/book2, papers/paper3. Fixed, faint, behind the text.
+   Only loads and shows from 861px wide. On wide screens it never reaches further than 750px
+   from the centre of the page, so there is always a margin to the screen edges. */
 .page-art-full {
     position: fixed;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: max(0px, calc(50vw - 750px));
+    right: max(0px, calc(50vw - 750px));
     z-index: -1;
     pointer-events: none;
     opacity: 0.2;
