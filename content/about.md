@@ -14,7 +14,6 @@ description: "About [Your Name]."
 
 ##### Credits
 
-+ Photo home page by [photographer Darius N. Fernandes](https://dariusnfernandes.com/)
 + Claude Opus 5.5
 + [Hugo](https://gohugo.io/)
 + [Hugo-website](https://github.com/pmichaillat/hugo-website/)

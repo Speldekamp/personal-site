@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<!-- Favicon: the front-page skyline (photo.svg) at small size. Same drawing and colours;
+     lines are drawn thicker so they stay visible at 16-32 px. -->
+<circle cx="64" cy="64" r="62.5" fill="#1b1c20" stroke="#3a3d44" stroke-width="3"/>
+<g fill="none" stroke="#c9c6bf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M28 88V66H40V52H54V60H64V38H80V56H92V68H100V88"/>
+<path d="M72 38V30"/>
+<path d="M22 88H106"/>
+<path stroke="#a3a6ad" stroke-width="5" d="M36 97H92"/>
+<path stroke="#a3a6ad" stroke-width="5" d="M50 106H78"/>
+<path stroke-width="3.6" d="M69 46h.01M75 46h.01M69 54h.01M75 54h.01M69 62h.01M75 62h.01M45 60h.01M49 60h.01M45 68h.01M49 68h.01"/>
+</g>
+</svg>
