@@ -3,8 +3,7 @@ title: "More Ways to Rome"
 date: 2025-07-22
 author: ["Daniël Speldekamp", "Joris Knoben", "Frank van Oort"]
 description: "The Oxford Handbook of Spatial Diversity and Business Economics, Oxford University Press, 2025, 372-393."
-summary: "In this book chapter we examine how geographical agglomeration affects firm productivity, recognizing that the benefits of locating near other economic activities vary across firms. It is a re-analysis of 
-It uses a configurational perspective to uncover different combinations of agglomeration characteristics and firm-level conditions produce different productivity outcomes."
+summary: "In this book chapter we examine how geographical agglomeration affects firm productivity, recognizing that the benefits of locating near other economic activities vary across firms. It is a re-analysis of the impactful 2016 Environment and Planning A paper \"One firm’s medicine is another firm’s poison\". It uses a configurational perspective to uncover different combinations of agglomeration characteristics and firm-level conditions produce different productivity outcomes."
 editPost:
     URL: "https://doi.org/10.1093/oxfordhb/9780198866190.013.0023"
     Text: "Oxford University Press"

@@ -297,6 +297,9 @@ h1, h2, h3, .post-title, .entry-header h2 {
     height: 192px;
     background-size: 820px 192px;
     background-repeat: no-repeat;
+    /* fade in at the top and out at the bottom over one triangle row (~38px) */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 38px, #000 calc(100% - 38px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 38px, #000 calc(100% - 38px), transparent 100%);
     pointer-events: none;
     z-index: -1;
     display: none;
@@ -307,3 +310,19 @@ h1, h2, h3, .post-title, .entry-header h2 {
         display: block;
     }
 }
+
+/* Key-paper star on the papers list (front matter: featured: true).
+   Height = cap height of the 24px heading (0.679em = 16.3px); its top sits on the
+   capital line and its bottom on the baseline of the heading's first line. */
+.entry-star {
+    position: absolute;
+    fill: var(--theme);      /* page charcoal inside */
+    stroke: var(--primary);  /* heading colour outline */
+    top: calc(var(--gap) + 4.95px);
+    right: var(--gap);
+}
+
+.entry-header h2.has-star {
+    padding-inline-end: 30px;
+}
+
