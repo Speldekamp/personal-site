@@ -1,6 +1,6 @@
 # personal-site
 
-Fork of [hugo-website-acavar](https://github.com/spoldov/hugo-website-acavar), which is an academic variant of [hugo-website](https://github.com/pmichaillat/hugo-website): dark and minimalist. Built with [Hugo](https://gohugo.io/) from Pascal Michaillat's [hugo-website](https://github.com/pmichaillat/hugo-website) template and the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme (both MIT; see `LICENSE.md` and `themes/PaperMod/LICENSE`).
+This website is a clone of [hugo-website-acavar](https://github.com/spoldov/hugo-website-acavar), which is an academic variant of [hugo-website](https://github.com/pmichaillat/hugo-website): dark and minimalist. Built with [Hugo](https://gohugo.io/) from Pascal Michaillat's [hugo-website](https://github.com/pmichaillat/hugo-website) template and the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme (both MIT; see `LICENSE.md` and `themes/PaperMod/LICENSE`).
 
 It is live at: [speldekamp.github.io/personal-site/about/](https://speldekamp.github.io/personal-site/).
 
