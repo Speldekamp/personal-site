@@ -5,6 +5,7 @@ author: ["Daniël Speldekamp", "Joris Knoben", "Ayse Saka-Helmhout"]
 description: "Research Policy, 2020, 49(3), Article 103921."
 featured: true
 pageArt:
+    lightOpacity: 0.22   # light theme: 10% darker than 0.2
     full: bg-full.svg
     fullLight: bg-full-light.svg   # light theme: faces in the inverse of the light page colour, so after inverting they match the paper
     opacity: 0.2

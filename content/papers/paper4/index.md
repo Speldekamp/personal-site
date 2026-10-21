@@ -5,6 +5,7 @@ author: ["Joris Knoben", "Daniël Speldekamp", "Harm Hulshof"]
 description: "Industry and Innovation, 2023, 30(3), 311-335."
 featured: true
 pageArt:
+    lightOpacity: 0.264  # light theme: 20% darker than 0.22
     full: bg-full.svg
     opacity: 0.22
     fit: "width"
