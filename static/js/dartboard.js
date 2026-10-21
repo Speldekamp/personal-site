@@ -184,7 +184,7 @@
 
     var foot = h('div', 'db-foot', null, root);
     h('div', 'db-note', 'Inner three rings: the setting firms face. Outer five rings: what firms do. Wedge size = number of firms. Read each wedge from the centre outwards. Click a wedge to read about it.', foot);
-    h('div', 'db-source', 'Based on GS4S Policy brief no. 4', foot);
+    h('div', 'db-source', 'Based on GS4S Policy brief no. 4.', foot);
 
     function render() {
       var P = PALETTES[state.mode];

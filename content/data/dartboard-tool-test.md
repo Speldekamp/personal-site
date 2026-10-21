@@ -13,7 +13,7 @@ The figure below showcases consistent ways in which multinational enterprises in
 
 ## Download
 
-+ Forthcoming
++ Forthcoming.
 
 ## Dartboard Tool
 
