@@ -5,7 +5,7 @@ author: ["Daniël Speldekamp", "Joris Knoben", "Frank van Oort"]
 description: "The Oxford Handbook of Spatial Diversity and Business Economics, Oxford University Press, 2025, 372-393."
 featured: true
 pageArt:
-    lightOpacity: 0.165  # light theme: 0.22 (same as paper2) -25%
+    lightOpacity: 0.165  # light theme only: 0.22 (same as paper2) -25%
     full: bg-full.webp
     edgetoedge: true
 summary: "In this book chapter we examine how geographical agglomeration affects firm productivity, recognizing that the benefits of locating near other economic activities vary across firms. It is a re-analysis of the impactful 2016 Environment and Planning A paper \"One firm’s medicine is another firm’s poison\". It uses a configurational perspective to uncover different combinations of agglomeration characteristics and firm-level conditions produce different productivity outcomes."
