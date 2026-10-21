@@ -5,7 +5,7 @@ author: ["Daniël Speldekamp", "Joris Knoben", "Ayse Saka-Helmhout"]
 description: "Regional Studies, 2023, 57(9), 1649-1665."
 featured: true
 pageArt:
-    lightOpacity: 0.38   # light theme: 0.3 +10% (0.33), then +15%
+    lightOpacity: 0.22   # light theme: same as paper2
     full: bg-full.svg
     opacity: 0.3
     fit: "width"
