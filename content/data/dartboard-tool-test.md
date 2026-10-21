@@ -1,5 +1,5 @@
 ---
-title: "Dartboard Tool Test"
+title: "GS4S Dartboard Tool"
 date: 2026-10-01
 author: ["Daniël Speldekamp", "Ayse Saka-Helmhout"]
 summary: "A live test version of the policy dartboard tool developed for the Horizon Europe GS4S project."
