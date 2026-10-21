@@ -442,7 +442,7 @@ body:not(.dark) .profile_inner .img-light { display: inline; }
 }
 
 /* Dark | Light switch (layouts/partials/theme_toggle.html, assets/js/theme.js).
-   Front page: top right, aligned to the text box. Subpages: right edge of the header, on the text column's
+   Front page: top, centred over the skyline. Subpages: right edge of the header, on the text column's
    right edge; below 760px it moves under the menu, centred. */
 .theme-toggle {
     display: inline-flex;
@@ -478,12 +478,12 @@ body:not(.dark) .profile_inner .img-light { display: inline; }
 @media (hover: hover) {
     .theme-toggle button:hover { color: var(--light); }
 }
-/* Front page: top right, its right edge on the right edge of the 640px text box
-   (.profile_inner: role line, footer), never closer than 24px to the window edge. */
+/* Front page: at the top, centred over the skyline image (which sits on the page centre). */
 .theme-toggle-corner {
     position: absolute;
     top: 24px;
-    right: max(24px, calc(50% - 320px));
+    left: 50%;
+    transform: translateX(-50%);
 }
 .nav { position: relative; }
 .theme-toggle-header {
@@ -503,5 +503,5 @@ body:not(.dark) .profile_inner .img-light { display: inline; }
     }
 }
 @media (max-width: 600px) {
-    .theme-toggle-corner { top: 16px; right: max(16px, calc(50% - 320px)); }
+    .theme-toggle-corner { top: 16px; }
 }
