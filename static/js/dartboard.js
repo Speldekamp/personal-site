@@ -86,9 +86,9 @@
       hub: '#24262b', hubLine: '#3a3d44', hubText: '#f0ede6', hubSub: '#a3a6ad', sel: '#f0ede6', dim: 0.32, swLine: '#3a3d44'
     },
     light: {
-      E: ['#43761f', '#ffffff', 2.6], H: ['#e2eedb', '#43761f', 2], A: ['#ff0000', '#ffffff', 2.6], U: ['#f6c9ab', '#c9581c', 2], N: ['#f2f2f2', null, 0],
+      E: ['#43761f', '#ffffff', 2.6], H: ['#e2eedb', '#2f5e14', 2], A: ['#ff0000', '#ffffff', 2.6], U: ['#f6c9ab', '#c9581c', 2], N: ['#f2f2f2', null, 0],
       gap: '#1b1c20', outline: '#c9c6bf', lblSet: '#fde6cf', lblAct: '#fcf4ec', lblLine: '#e8c9b5', lblBold: '#34304e', lblText: '#34304e',
-      hub: '#34304e', hubLine: '#34304e', hubText: '#ffffff', hubSub: '#f2a58a', sel: '#f0ede6', dim: 0.38, swLine: '#1b1c20'
+      hub: '#34304e', hubLine: '#34304e', hubText: '#ffffff', hubSub: '#f2a58a', sel: '#f0ede6', dim: 0.38, hDim: 0.9, swLine: '#1b1c20'
     }
   };
 
@@ -220,7 +220,7 @@
           el('path', { d: sect(w.a0, w.a1, R[k], R[k + 1]), fill: P[c][0], opacity: o, stroke: P.gap, 'stroke-width': 1.5 }, gCells);
           if (P[c][1]) {
             var p = xy((R[k] + R[k + 1]) / 2, w.mid);
-            el('path', { d: markPath(c, p[0], p[1]), fill: 'none', stroke: P[c][1], 'stroke-width': P[c][2], 'stroke-linecap': 'round', 'stroke-linejoin': 'round', opacity: o }, gMarks);
+            el('path', { d: markPath(c, p[0], p[1]), fill: 'none', stroke: P[c][1], 'stroke-width': P[c][2], 'stroke-linecap': 'round', 'stroke-linejoin': 'round', opacity: (c === 'H' && P.hDim && w.i !== state.sel) ? P.hDim : o }, gMarks);
           }
         }
         var desc = RINGS.map(function (r, k) { return (r[0] + ' ' + r[1]).trim() + ': ' + STATES[w.codes[k]].toLowerCase(); }).join('; ');
@@ -283,13 +283,18 @@
       var onRight = Math.sin(w.mid * Math.PI / 180) > 0;
       var target = onRight ? right : left;
       (onRight ? left : right).replaceChildren();
+      fillPanel(target, P, D, w.i, w.n, w.codes, w.take);
+      fitHeight();
+    }
+
+    function fillPanel(target, P, D, i, n, codes, takeText) {
       target.replaceChildren();
       var main = h('div', 'db-path', null, target);
-      h('div', 'db-title', 'Pathway ' + (w.i + 1), main);
-      h('div', 'db-firms', w.n + (w.n === 1 ? ' firm' : ' firms') + ' in ' + (D.name === D.name.toUpperCase() ? D.name : D.name.toLowerCase()), main);
+      h('div', 'db-title', 'Pathway ' + (i + 1), main);
+      h('div', 'db-firms', n + (n === 1 ? ' firm' : ' firms') + ' in ' + (D.name === D.name.toUpperCase() ? D.name : D.name.toLowerCase()), main);
       STATE_ORDER.forEach(function (c) {
         var items = [];
-        for (var k = 0; k < 8; k++) if (w.codes[k] === c) items.push(PHRASES[k]);
+        for (var k = 0; k < 8; k++) if (codes[k] === c) items.push(PHRASES[k]);
         if (!items.length) return;
         var g = h('div', 'db-group', null, main);
         var lab = h('div', 'db-label', null, g);
@@ -298,9 +303,36 @@
         h('div', 'db-items', listSentence(items), g);
       });
       var take = h('div', 'db-take', null, target);
-      h('div', 'db-take-label', 'Takeaway:', take);
-      h('div', 'db-items', w.take, take);
+      h('div', 'db-title', 'Takeaway', take);
+      h('div', 'db-items db-take-text', takeText, take);
     }
+
+    /* Keep the legend in one place: the figure row is as tall as the
+       tallest pathway text of any sector at the current width. */
+    function fitHeight() {
+      body.style.minHeight = '';
+      var cols = getComputedStyle(body).gridTemplateColumns.split(' ').length;
+      if (cols < 3) return;
+      var P = PALETTES[state.mode];
+      var probe = h('div', 'db-panel db-right', null, body);
+      probe.style.cssText = 'position:absolute;visibility:hidden;left:0;top:0;width:' + right.getBoundingClientRect().width + 'px';
+      var max = 0;
+      ORDER.forEach(function (k) {
+        DATA[k].paths.forEach(function (p, i) {
+          fillPanel(probe, P, DATA[k], i, p[0], p[1], p[2]);
+          max = Math.max(max, probe.getBoundingClientRect().height);
+        });
+      });
+      body.removeChild(probe);
+      body.style.minHeight = Math.ceil(Math.max(max, fig.getBoundingClientRect().height)) + 'px';
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(fitHeight, 100);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeight);
 
     function focusHit(i) {
       var hits = fig.querySelectorAll('.db-hit');

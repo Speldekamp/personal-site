@@ -459,15 +459,15 @@ h1, h2, h3, .post-title, .entry-header h2 {
     max-width: 720px;
 }
 .dartboard .db-head {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.3;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
     color: var(--light);
 }
 .dartboard .db-sub {
     font-size: 17px;
     line-height: 1.5;
-    color: var(--mid);
+    color: var(--muted);
     margin-top: 4px;
 }
 .dartboard .db-body {
@@ -517,22 +517,16 @@ h1, h2, h3, .post-title, .entry-header h2 {
     align-items: center;
     gap: 8px;
     font-size: 15px;
-    color: var(--muted);
+    color: var(--mid);
     margin-bottom: 3px;
 }
 .dartboard .db-swatch { flex: none; }
 .dartboard .db-items {
     font-size: 17px;
     line-height: 1.5;
-    color: var(--mid);
+    color: var(--muted);
 }
-.dartboard .db-take-label {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1.25;
-    color: var(--light);
-    margin-bottom: 6px;
-}
+.dartboard .db-take .db-title { margin-bottom: 6px; }
 .dartboard .db-foot {
     margin-top: 28px;
     display: flex;
