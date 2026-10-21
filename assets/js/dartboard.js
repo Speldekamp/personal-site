@@ -1,4 +1,4 @@
-/* Dartboard tool: interactive pathway figure for /data/dartboard-tool-test/.
+/* Dartboard tool: interactive pathway figure for /data/dartboard-tool-test/. Colours follow the page's dark/light theme.
    Data from Table 1 of GS4S Policy brief no. 4 (transcribed from the source figures).
    Codes per ring, centre outwards: E essential, H helps, A must be absent,
    U usually absent, N does not matter. */
@@ -85,10 +85,12 @@
       gap: '#1b1c20', outline: '#3a3d44', lblSet: '#36302b', lblAct: '#27292e', lblLine: '#1b1c20', lblBold: '#f0ede6', lblText: '#c9c6bf',
       hub: '#24262b', hubLine: '#3a3d44', hubText: '#f0ede6', hubSub: '#a3a6ad', sel: '#f0ede6', dim: 0.32, swLine: '#3a3d44'
     },
+    /* Light page theme: the source figures' colours (navy hub, salmon labels),
+       with gaps in the page colour (#f4f2ec) and the page's lines and text. */
     light: {
-      E: ['#43761f', '#ffffff', 2.6], H: ['#e2eedb', '#2f5e14', 2], A: ['#ff0000', '#ffffff', 2.6], U: ['#f6c9ab', '#c9581c', 2], N: ['#f2f2f2', null, 0],
-      gap: '#1b1c20', outline: '#c9c6bf', lblSet: '#fde6cf', lblAct: '#fcf4ec', lblLine: '#e8c9b5', lblBold: '#34304e', lblText: '#34304e',
-      hub: '#34304e', hubLine: '#34304e', hubText: '#ffffff', hubSub: '#f2a58a', sel: '#f0ede6', dim: 0.38, hDim: 0.9, swLine: '#1b1c20'
+      E: ['#43761f', '#ffffff', 2.6], H: ['#dcebd3', '#2f5e14', 2], A: ['#e0261b', '#ffffff', 2.6], U: ['#f6c9ab', '#c9581c', 2], N: ['#e6e3dc', null, 0],
+      gap: '#f4f2ec', outline: '#c4c0b7', lblSet: '#fde6cf', lblAct: '#fcf4ec', lblLine: '#e8c9b5', lblBold: '#34304e', lblText: '#34304e',
+      hub: '#34304e', hubLine: '#34304e', hubText: '#ffffff', hubSub: '#f2a58a', sel: '#1b1c20', dim: 0.4, hDim: 0.9, swLine: '#b9b5ad'
     }
   };
 
@@ -149,8 +151,10 @@
     return svg;
   }
 
+  function pageMode() { return document.body.classList.contains('dark') ? 'dark' : 'light'; }
+
   function mount(root) {
-    var state = { sector: ORDER[0], sel: 0, mode: 'dark' };
+    var state = { sector: ORDER[0], sel: 0, mode: pageMode() };
     var wedges = [];
 
     var top = h('div', 'db-top', null, root);
@@ -163,15 +167,13 @@
       b.addEventListener('click', function () { state.sector = k; state.sel = 0; build(); });
       return b;
     });
-    var modeGroup = h('div', 'db-seg db-mode', null, top);
-    modeGroup.setAttribute('role', 'group');
-    modeGroup.setAttribute('aria-label', 'Colours');
-    var modeButtons = [['dark', 'Dark'], ['light', 'Light']].map(function (m) {
-      var b = h('button', null, m[1], modeGroup);
-      b.type = 'button';
-      b.addEventListener('click', function () { state.mode = m[0]; build(); });
-      return [m[0], b];
-    });
+    /* Colours follow the page theme (the "dark" class on <body>). */
+    if (window.MutationObserver) {
+      new MutationObserver(function () {
+        var m = pageMode();
+        if (m !== state.mode) { state.mode = m; build(); }
+      }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
 
     var intro = h('div', 'db-intro', null, root);
     var introHead = h('div', 'db-head', null, intro);
@@ -198,7 +200,6 @@
       introHead.textContent = D.head;
       introSub.textContent = D.sub;
       sectorButtons.forEach(function (b, i) { b.setAttribute('aria-pressed', ORDER[i] === state.sector ? 'true' : 'false'); });
-      modeButtons.forEach(function (m) { m[1].setAttribute('aria-pressed', m[0] === state.mode ? 'true' : 'false'); });
 
       var a = HALF;
       wedges = D.paths.map(function (p, i) {

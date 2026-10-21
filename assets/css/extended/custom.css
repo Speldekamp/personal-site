@@ -38,9 +38,51 @@ h1, h2, h3, .post-title, .entry-header h2 {
     font-weight: 500;
 }
 
+/* Light theme: same roles as .dark above, dark on warm paper
+   (the palette of the GS4S Dartboard repo's light theme). */
+body:not(.dark) {
+    --light: #1b1c20;
+    --mid: #3a3c42;
+    --muted: #676a71;
+
+    --theme: #f4f2ec;        /* page background: warm paper */
+    --entry: #ebe8e1;        /* cards, code blocks */
+    --tertiary: #d3cfc6;     /* icon rings, strong lines */
+    --border: #dedad2;       /* thin lines */
+    --code-block-bg: #ebe8e1;
+    --code-bg: #e6e3dc;
+
+    --primary: var(--light);
+    --content: var(--mid);
+    --secondary: var(--muted);
+    --gray: var(--muted);
+    --darkcolor: var(--muted);
+    --lightcolor: var(--border);
+}
+body.dark { color-scheme: dark; }
+body:not(.dark) { color-scheme: light; }
+
+.list,
 .dark.list {
     background: var(--theme);
 }
+.toc {
+    background: var(--entry);
+}
+
+/* Light theme: page art is drawn as light lines for the dark page, so invert it
+   (light lines become dark lines; opacity and placement stay the same). */
+body:not(.dark) .page-art,
+body:not(.dark) .page-art-full,
+body:not(.dark) .page-art-center,
+body:not(.dark) .title-band {
+    filter: invert(1);
+}
+
+/* Front-page skyline: a dark and a light version, one shown per theme. */
+.profile_inner .img-light { display: none; }
+body:not(.dark) .profile_inner .img-dark { display: none; }
+body:not(.dark) .profile_inner .img-light { display: inline; }
 
 /* Lists, code and small UI text kept to the palette */
 .post-content li::marker,

@@ -73,6 +73,7 @@ params:
           subtitle: "Specializing in businesses & their environments, innovation, \"exceedingly vague algorithms\" such as used in QCA (thanks, reviewer), and breaking stuff. A believer that universities can do more for students, businesses, and society."
           # To add a photo: put photo.jpg in static/ and uncomment the next line.
           imageUrl: photo.svg
+          imageUrlLight: photo-light.svg   # same drawing for the light theme
           imageTitle: "Line drawing of a city skyline"
           imageWidth: 128
           imageHeight: 128

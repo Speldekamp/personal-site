@@ -6,7 +6,7 @@
 @font-face{font-family:'Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-400-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 /* Dartboard tool (layouts/shortcodes/dartboard.html, assets/js/dartboard.js).
-   Loaded only on pages that use the shortcode.
+   Loaded only on pages that use the shortcode. Colours follow the page theme.
    Breaks out of the 720px text column to up to 1560px:
    [takeaway][pathway] [figure] [pathway][takeaway]. */
 .dartboard {
@@ -48,11 +48,6 @@
 .dartboard .db-seg button:focus-visible {
     outline: 2px solid var(--mid);
     outline-offset: 2px;
-}
-.dartboard .db-mode {
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 .dartboard .db-intro {
     text-align: center;
@@ -99,6 +94,7 @@
 .dartboard .db-hit { cursor: pointer; outline: none; }
 @media (hover: hover) {
     .dartboard .db-hit:hover { fill: rgba(255, 255, 255, 0.07); }
+    body:not(.dark) .dartboard .db-hit:hover { fill: rgba(0, 0, 0, 0.05); }
     .dartboard .db-seg button:hover { color: var(--light); }
 }
 .dartboard .db-hit:focus-visible { stroke: var(--light); stroke-width: 2.5; }
@@ -150,14 +146,6 @@
     .dartboard .db-left { flex-direction: column; gap: 22px; padding-top: 40px; }
     .dartboard .db-body { gap: 32px; }
 }
-@media (max-width: 1040px) {
-    .dartboard .db-top {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    .dartboard .db-mode { position: static; }
-}
 @media (max-width: 1000px) {
     .dartboard .db-body {
         grid-template-columns: minmax(0, 1fr) minmax(0, 440px) minmax(0, 1fr);
@@ -166,12 +154,6 @@
     .dartboard .db-panel, .dartboard .db-left { padding-top: 0; }
 }
 @media (max-width: 860px) {
-    .dartboard .db-top {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    .dartboard .db-mode { position: static; }
     .dartboard .db-body { grid-template-columns: minmax(0, 1fr); }
     .dartboard .db-fig {
         order: -1;

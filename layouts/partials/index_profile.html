@@ -3,7 +3,11 @@
     <div class="profile_inner">
         {{- if .imageUrl }}
         <img draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "Profile photo" }}"
-            height="{{ .imageHeight | default 128 }}" width="{{ .imageWidth | default 128 }}" />
+            height="{{ .imageHeight | default 128 }}" width="{{ .imageWidth | default 128 }}"{{ if .imageUrlLight }} class="img-dark"{{ end }} />
+        {{- with .imageUrlLight }}
+        <img draggable="false" class="img-light" src="{{ . | absURL }}" alt="{{ site.Params.profileMode.imageTitle | default "Profile photo" }}"
+            height="{{ site.Params.profileMode.imageHeight | default 128 }}" width="{{ site.Params.profileMode.imageWidth | default 128 }}" loading="lazy" />
+        {{- end }}
         {{- end }}
         <h1>{{ .title | default site.Title | markdownify }}</h1>
         {{- with .role }}<p class="role">{{ . | markdownify }}</p>{{ end }}
