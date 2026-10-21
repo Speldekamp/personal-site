@@ -351,6 +351,31 @@ h1, h2, h3, .post-title, .entry-header h2 {
     }
 }
 
+/* pageArt.center: one fixed figure centred under the text column (old7 Maastricht map, 1300 x 1786).
+   Its top sits 100px below the last visible triangles of the title band (about 248px from the top), its bottom 30px
+   above the screen edge, so it shows whole; never wider than the text minus 100px (620px).
+   Stays put while the text scrolls over it. */
+.page-art-center {
+    position: fixed;
+    left: 50%;
+    top: 348px;
+    transform: translateX(-50%);
+    height: min(calc(100vh - 378px), calc((var(--main-width) - 100px) * 1786 / 1300));
+    aspect-ratio: 1300 / 1786;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.16;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: none;
+}
+
+@media (min-width: 861px) {
+    .page-art-center {
+        display: block;
+    }
+}
+
 /* pageArt.edgetoedge: true -> no 750px limit, runs to the screen edges (More Ways to Rome) */
 .page-art-full.edge-to-edge {
     left: 0;

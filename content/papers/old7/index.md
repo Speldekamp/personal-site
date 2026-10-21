@@ -3,8 +3,7 @@ title: "MicRO: Een Bottom-Up Verkenning van Regionale Dynamiek"
 date: 2016-04-01
 author: ["Oedzge Atzema, Jan Hein Boersma, Vera Cerutti, Koen Janssen, Wim Keijsers, Han Olden, Daniël Speldekamp, Jan Willem Tap"]
 pageArt:
-    left: bg-left.webp
-    right: bg-right.webp
+    center: bg-map.webp
     band: title-band.webp
 description: "Utrecht University (ESD2), 2016."
 featured: true

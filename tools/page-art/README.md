@@ -33,3 +33,9 @@ watermarked stock previews; draw an original instead (as for the earlier paper4 
 ## trace_network_map.py (paper3)
 
 `python3 trace_network_map.py SRC.png OUT.svg` turns the user's own flat-colour European cluster network map into a greyscale SVG: countries as faint fills (white borders kept as gaps), network lines found by testing every node pair, circles brightest (blue dimmest, green brighter, yellow near white, hatched yellow/purple kept as light/dark stripes), ragged blurred edge fade on land and lines. Colour thresholds are specific to that image. Used with opacity 0.3, fit width.
+
+### old7 centred map (`bg-map.webp`)
+From the user's A.pdf (Maastricht start-up map): `pdftoppm -r 300 -png A.pdf`, title text blanked
+(x 455–1135, y 100–310 at 300 dpi), cropped to the map only (legend on the right left out), then
+`light_lines.py map.png bg-map.webp --width 1300 --lossless --sharpen`. 1300 x 1786, sharp at 2x.
+

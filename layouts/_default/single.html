@@ -1,13 +1,14 @@
 {{- define "main" }}
 
 {{- /* Optional page art (set per page in front matter, files in the page folder):
-       pageArt: {left: ..., right: ..., band: ..., full: ..., opacity: 0.2, scale: 0.85, fit: "width" | "contain", edgetoedge: true}
+       pageArt: {left: ..., right: ..., center: ..., band: ..., full: ..., opacity: 0.2, scale: 0.85, fit: "width" | "contain", edgetoedge: true}
        (lower-case keys; opacity/scale/fit/edgetoedge apply to full; scale shrinks it about its centre). Images load only on wide screens. */ -}}
 {{- $art := .Params.pageArt }}
-{{- $left := "" }}{{- $right := "" }}{{- $band := "" }}{{- $full := "" }}
+{{- $left := "" }}{{- $right := "" }}{{- $center := "" }}{{- $band := "" }}{{- $full := "" }}
 {{- with $art }}
 {{- with .left }}{{ with $.Resources.GetMatch . }}{{ $left = .RelPermalink }}{{ end }}{{ end }}
 {{- with .right }}{{ with $.Resources.GetMatch . }}{{ $right = .RelPermalink }}{{ end }}{{ end }}
+{{- with .center }}{{ with $.Resources.GetMatch . }}{{ $center = .RelPermalink }}{{ end }}{{ end }}
 {{- with .band }}{{ with $.Resources.GetMatch . }}{{ $band = .RelPermalink }}{{ end }}{{ end }}
 {{- with .full }}{{ with $.Resources.GetMatch . }}{{ $full = .RelPermalink }}{{ end }}{{ end }}
 <style>
@@ -16,6 +17,7 @@
 {{- with $right }}{{ printf ".page-art-right{background-image:url(%q)}" . | safeCSS }}{{ end }}
 }
 @media (min-width: 861px) {
+{{- with $center }}{{ printf ".page-art-center{background-image:url(%q)}" . | safeCSS }}{{ end }}
 {{- with $full }}{{ printf ".page-art-full{background-image:url(%q)}" . | safeCSS }}{{ end }}
 }
 @media (min-width: 900px) {
@@ -24,6 +26,7 @@
 </style>
 {{- with $left }}<div class="page-art page-art-left" aria-hidden="true"></div>{{ end }}
 {{- with $right }}<div class="page-art page-art-right" aria-hidden="true"></div>{{ end }}
+{{- with $center }}<div class="page-art-center" aria-hidden="true"></div>{{ end }}
 {{- with $full }}<div class="page-art-full{{ if $art.edgetoedge }} edge-to-edge{{ end }}{{ if eq $art.fit "width" }} fit-width{{ end }}{{ if eq $art.fit "contain" }} fit-contain{{ end }}" aria-hidden="true"{{ if or $art.opacity $art.scale }} style="{{ with $art.opacity }}opacity: {{ . }};{{ end }}{{ with $art.scale }} transform: scale({{ . }});{{ end }}"{{ end }}></div>{{ end }}
 {{- end }}
 
