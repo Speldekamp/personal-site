@@ -440,3 +440,66 @@ body:not(.dark) .profile_inner .img-light { display: inline; }
     background-size: contain;
     background-position: 50% 50%;
 }
+
+/* Dark | Light switch (layouts/partials/theme_toggle.html, assets/js/theme.js).
+   Front page: top-right corner. Subpages: right edge of the header, on the text column's
+   right edge; below 760px it moves under the menu, centred. */
+.theme-toggle {
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    box-sizing: border-box;
+    height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    line-height: 1;
+}
+.theme-toggle[hidden] { display: none; }
+.theme-toggle button {
+    font: inherit;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+.theme-toggle button[aria-pressed="true"] {
+    background: var(--entry);
+    color: var(--light);
+    box-shadow: inset 0 0 0 1px var(--tertiary);
+}
+.theme-toggle button:focus-visible {
+    outline: 2px solid var(--mid);
+    outline-offset: 2px;
+}
+@media (hover: hover) {
+    .theme-toggle button:hover { color: var(--light); }
+}
+.theme-toggle-corner {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+.nav { position: relative; }
+.theme-toggle-header {
+    position: absolute;
+    top: 50%;
+    right: var(--gap);
+    transform: translateY(-50%);
+    display: flex;
+}
+@media (max-width: 760px) {
+    .theme-toggle-header {
+        position: static;
+        transform: none;
+        flex-basis: 100%;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+}
+@media (max-width: 600px) {
+    .theme-toggle-corner { top: 16px; right: 16px; }
+}

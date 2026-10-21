@@ -1,0 +1,9 @@
+{{- /* Dark | Light switch. Pass a class for its placement: "theme-toggle-corner" (front page,
+       top right) or "theme-toggle-header" (subpages, right edge of the header).
+       Hidden until theme.js runs, so without JavaScript the page simply stays dark. */ -}}
+<div class="theme-toggle-wrap {{ . }}">
+    <div class="theme-toggle" role="group" aria-label="Colour theme" hidden>
+        <button type="button" data-theme="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme="light" aria-pressed="false">Light</button>
+    </div>
+</div>

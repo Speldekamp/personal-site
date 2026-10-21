@@ -17,12 +17,24 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
-    {{- if not .IsHome  }}
+    <script>
+        /* Apply a saved Dark/Light choice before first paint (see assets/js/theme.js). */
+        try {
+            var t = localStorage.getItem("pref-theme");
+            if (t === "light") document.body.classList.remove("dark");
+            else if (t === "dark") document.body.classList.add("dark");
+        } catch (e) {}
+    </script>
+    {{- if .IsHome }}
+    {{- partial "theme_toggle.html" "theme-toggle-corner" }}
+    {{- else }}
     {{- partialCached "header.html" . .Page -}}
     {{- end }}
     <main class="main">
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    {{- $theme := resources.Get "js/theme.js" | minify | fingerprint }}
+    <script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
 </body>
 </html>
