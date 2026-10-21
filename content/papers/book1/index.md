@@ -7,6 +7,7 @@ featured: true
 pageArt:
     full: bg-full.webp
     opacity: 0.16
+    scale: 0.85
     fit: "contain"
 summary: "It is impossible for me to summarize my PhD dissertation in a few sentences. Instead I will just list keywords: industrial clusters, geography, networks, institutions, configurational thinking and analysis."
 editPost:

@@ -1,8 +1,8 @@
 {{- define "main" }}
 
 {{- /* Optional page art (set per page in front matter, files in the page folder):
-       pageArt: {left: ..., right: ..., band: ..., full: ..., opacity: 0.2, fit: "width" | "contain", edgetoedge: true}
-       (lower-case keys; opacity/fit/edgetoedge apply to full). Images load only on wide screens. */ -}}
+       pageArt: {left: ..., right: ..., band: ..., full: ..., opacity: 0.2, scale: 0.85, fit: "width" | "contain", edgetoedge: true}
+       (lower-case keys; opacity/scale/fit/edgetoedge apply to full; scale shrinks it about its centre). Images load only on wide screens. */ -}}
 {{- $art := .Params.pageArt }}
 {{- $left := "" }}{{- $right := "" }}{{- $band := "" }}{{- $full := "" }}
 {{- with $art }}
@@ -24,7 +24,7 @@
 </style>
 {{- with $left }}<div class="page-art page-art-left" aria-hidden="true"></div>{{ end }}
 {{- with $right }}<div class="page-art page-art-right" aria-hidden="true"></div>{{ end }}
-{{- with $full }}<div class="page-art-full{{ if $art.edgetoedge }} edge-to-edge{{ end }}{{ if eq $art.fit "width" }} fit-width{{ end }}{{ if eq $art.fit "contain" }} fit-contain{{ end }}" aria-hidden="true"{{ with $art.opacity }} style="opacity: {{ . }}"{{ end }}></div>{{ end }}
+{{- with $full }}<div class="page-art-full{{ if $art.edgetoedge }} edge-to-edge{{ end }}{{ if eq $art.fit "width" }} fit-width{{ end }}{{ if eq $art.fit "contain" }} fit-contain{{ end }}" aria-hidden="true"{{ if or $art.opacity $art.scale }} style="{{ with $art.opacity }}opacity: {{ . }};{{ end }}{{ with $art.scale }} transform: scale({{ . }});{{ end }}"{{ end }}></div>{{ end }}
 {{- end }}
 
 <article class="post-single">
