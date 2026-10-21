@@ -6,10 +6,50 @@
   'use strict';
 
   var DATA = {
-    manufacturing: { name: 'Manufacturing', paths: [[5, 'UEUNUEUA'], [6, 'UHUENEUE'], [15, 'UHUNEEHE'], [3, 'HUUHEEHE']] },
-    health: { name: 'Health', paths: [[13, 'UHUHHNEE'], [4, 'UHUHAHEN'], [4, 'UHUAHHEN'], [14, 'UHNHHHEE']] },
-    construction: { name: 'Construction', paths: [[14, 'UHUNHHEH'], [13, 'UHNHHHEH']] },
-    it: { name: 'IT', paths: [[27, 'UHUHHENN'], [13, 'UHUEHNHA'], [19, 'UHUNHEHE'], [18, 'UHUHNEHE'], [25, 'UHNHHEHE'], [6, 'HUNHHEHE']] }
+    manufacturing: {
+      name: 'Manufacturing',
+      head: 'Made with skills: inflow programmes power every pathway.',
+      sub: 'Three of the four pathways also rely on automation.',
+      paths: [
+        [5, 'UEUNUEUA', 'Where formal barriers are high and automation is not an option, firms depend on skill inflow programmes. Simpler visa, permit and diploma procedures make those programmes work.'],
+        [6, 'UHUENEUE', 'Non-EU recruitment, backed by inflow programmes and automation, keeps these firms staffed. Faster work permits pay off directly.'],
+        [15, 'UHUNEEHE', 'The most common route: EU hiring, inflow programmes and automation together. Support for intra-EU mobility and for automation reinforce each other.'],
+        [3, 'HUUHEEHE', 'Even where language and partner-job barriers exist, firms close gaps through EU hiring, inflow programmes and automation. Integration support lowers the cost.']
+      ]
+    },
+    health: {
+      name: 'Health',
+      head: 'Outsourcing is the standard treatment in health.',
+      sub: 'Automation adds to it where firms also recruit internationally.',
+      paths: [
+        [13, 'UHUHHNEE', 'Outsourcing and automation do the heavy lifting, with recruitment from inside and outside the EU on top. Support for technology adoption and open hiring routes both count.'],
+        [4, 'UHUHAHEN', 'These firms outsource and recruit beyond the EU, not within it. Fast-track routes for non-EU health workers matter most here.'],
+        [4, 'UHUAHHEN', 'The mirror image of Pathway 2: outsourcing plus hiring within the EU, not beyond it. Intra-EU mobility and diploma recognition are the levers.'],
+        [14, 'UHNHHHEE', 'The broadest toolkit: outsourcing and automation, helped by every form of recruitment. It works whatever the cause of the shortage.']
+      ]
+    },
+    construction: {
+      name: 'Construction',
+      head: 'Outsourcing is the cornerstone of construction.',
+      sub: 'Automation only plays a supporting role.',
+      paths: [
+        [14, 'UHUNHHEH', 'Outsourcing carries the load, with EU hiring, inflow programmes and some automation in support. Policy that eases subcontracting across borders reaches these firms first.'],
+        [13, 'UHNHHHEH', 'Outsourcing again, now backed by recruitment from inside and outside the EU. Open, simple hiring routes help these firms most.']
+      ]
+    },
+    it: {
+      name: 'IT',
+      head: 'Bots need brains: automation works best with new talent.',
+      sub: 'Where automation is missing, larger firms hire from outside the EU instead.',
+      paths: [
+        [27, 'UHUHHENN', 'The largest group relies on skill inflow programmes, helped by hiring from inside and outside the EU. Well-run inflow programmes are the main lever.'],
+        [13, 'UHUEHNHA', 'Without automation, these firms hire from outside the EU. Quick, predictable work permits are what they need.'],
+        [19, 'UHUNHEHE', 'Automation paired with inflow programmes: new tools and new talent go together. Fund both at once.'],
+        [18, 'UHUHNEHE', 'The same pairing of automation and inflow programmes, with non-EU hiring in support.'],
+        [25, 'UHNHHEHE', 'Automation and inflow programmes, whatever the cause of the shortage. Investment in both pays off broadly.'],
+        [6, 'HUNHHEHE', 'Even where language and partner-job barriers exist, firms combine automation with inflow programmes. Integration support helps them keep the talent.']
+      ]
+    }
   };
   var ORDER = ['manufacturing', 'health', 'construction', 'it'];
 
@@ -131,6 +171,10 @@
       return [m[0], b];
     });
 
+    var intro = h('div', 'db-intro', null, root);
+    var introHead = h('div', 'db-head', null, intro);
+    var introSub = h('div', 'db-sub', null, intro);
+
     var body = h('div', 'db-body', null, root);
     var left = h('div', 'db-panel db-left', null, body);
     var fig = h('div', 'db-fig', null, body);
@@ -149,6 +193,8 @@
       var total = D.paths.reduce(function (t, p) { return t + p[0]; }, 0);
       var span = 360 - 2 * HALF;
 
+      introHead.textContent = D.head;
+      introSub.textContent = D.sub;
       sectorButtons.forEach(function (b, i) { b.setAttribute('aria-pressed', ORDER[i] === state.sector ? 'true' : 'false'); });
       modeButtons.forEach(function (m) { m[1].setAttribute('aria-pressed', m[0] === state.mode ? 'true' : 'false'); });
 
@@ -156,7 +202,7 @@
       var wedges = D.paths.map(function (p, i) {
         var a0 = a, a1 = a + span * p[0] / total;
         a = a1;
-        return { i: i, n: p[0], codes: p[1], a0: a0, a1: a1, mid: (a0 + a1) / 2 };
+        return { i: i, n: p[0], codes: p[1], take: p[2], a0: a0, a1: a1, mid: (a0 + a1) / 2 };
       });
 
       var svg = el('svg', { viewBox: '0 0 700 700', role: 'group', 'aria-label': D.name + ': ' + D.paths.length + ' pathways, ' + total + ' firms' });
@@ -238,18 +284,22 @@
       var target = onRight ? right : left;
       (onRight ? left : right).replaceChildren();
       target.replaceChildren();
-      h('div', 'db-title', 'Pathway ' + (w.i + 1), target);
-      h('div', 'db-firms', w.n + (w.n === 1 ? ' firm' : ' firms') + ' in ' + (D.name === D.name.toUpperCase() ? D.name : D.name.toLowerCase()), target);
+      var main = h('div', 'db-path', null, target);
+      h('div', 'db-title', 'Pathway ' + (w.i + 1), main);
+      h('div', 'db-firms', w.n + (w.n === 1 ? ' firm' : ' firms') + ' in ' + (D.name === D.name.toUpperCase() ? D.name : D.name.toLowerCase()), main);
       STATE_ORDER.forEach(function (c) {
         var items = [];
         for (var k = 0; k < 8; k++) if (w.codes[k] === c) items.push(PHRASES[k]);
         if (!items.length) return;
-        var g = h('div', 'db-group', null, target);
+        var g = h('div', 'db-group', null, main);
         var lab = h('div', 'db-label', null, g);
         swatch(P, c, lab);
         h('span', null, STATES[c], lab);
         h('div', 'db-items', listSentence(items), g);
       });
+      var take = h('div', 'db-take', null, target);
+      h('div', 'db-take-label', 'Takeaway:', take);
+      h('div', 'db-items', w.take, take);
     }
 
     function focusHit(i) {
