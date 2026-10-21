@@ -3,6 +3,7 @@ title: "Clusters and Firm-Level Innovation"
 date: 2020-04-01
 author: ["Daniël Speldekamp", "Joris Knoben", "Ayse Saka-Helmhout"]
 description: "Research Policy, 2020, 49(3), Article 103921."
+featured: true
 pageArt:
     full: bg-full.svg
     opacity: 0.2
