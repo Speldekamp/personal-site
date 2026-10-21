@@ -5,6 +5,7 @@ author: ["Daniël Speldekamp"]
 description: "PhD dissertation, Radboud University Nijmegen, 2021."
 featured: true
 pageArt:
+    lightOpacity: 0.137  # light theme: 5% more than 0.13
     full: bg-full.webp
     opacity: 0.13
     scale: 0.64

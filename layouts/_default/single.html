@@ -1,7 +1,7 @@
 {{- define "main" }}
 
 {{- /* Optional page art (set per page in front matter, files in the page folder):
-       pageArt: {left: ..., right: ..., center: ..., band: ..., full: ..., opacity: 0.2, scale: 0.85, fit: "width" | "contain", edgetoedge: true}
+       pageArt: {left: ..., right: ..., center: ..., band: ..., full: ..., opacity: 0.2, lightOpacity: 0.25, scale: 0.85, fit: "width" | "contain", edgetoedge: true}
        (lower-case keys; opacity/scale/fit/edgetoedge apply to full; scale shrinks it about its centre). Images load only on wide screens. */ -}}
 {{- $art := .Params.pageArt }}
 {{- $left := "" }}{{- $right := "" }}{{- $center := "" }}{{- $band := "" }}{{- $full := "" }}
@@ -23,6 +23,8 @@
 @media (min-width: 900px) {
 {{- with $band }}{{ printf ".title-band{background-image:url(%q)}" . | safeCSS }}{{ end }}
 }
+{{- /* pageArt.lightOpacity: opacity of the full/center art in the light theme only (dark keeps opacity / the CSS default). */}}
+{{- with $art.lightopacity }}{{ printf "body:not(.dark) .page-art-full,body:not(.dark) .page-art-center{opacity:%v !important}" . | safeCSS }}{{ end }}
 </style>
 {{- with $left }}<div class="page-art page-art-left" aria-hidden="true"></div>{{ end }}
 {{- with $right }}<div class="page-art page-art-right" aria-hidden="true"></div>{{ end }}
