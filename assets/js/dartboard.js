@@ -97,13 +97,14 @@
   var R = [92, 123, 154, 185, 216, 247, 278, 309, 340];
   var HALF = 38; /* half-angle of the label wedge at the top */
 
+  function f2(n) { return Math.round(n * 100) / 100; }
   function xy(r, a) {
     var t = a * Math.PI / 180;
     return [CX + r * Math.sin(t), CX - r * Math.cos(t)];
   }
   function pt(r, a) {
     var p = xy(r, a);
-    return p[0].toFixed(2) + ' ' + p[1].toFixed(2);
+    return f2(p[0]) + ' ' + f2(p[1]);
   }
   function sect(a0, a1, r0, r1) {
     var L = (a1 - a0) > 180 ? 1 : 0;
@@ -113,11 +114,11 @@
   function markPath(code, x, y, s) {
     s = s || 1;
     if (code === 'E' || code === 'H') {
-      return 'M' + (x - 4.6 * s) + ' ' + (y + 0.2 * s) + ' L' + (x - 1.4 * s) + ' ' + (y + 3.5 * s) + ' L' + (x + 4.8 * s) + ' ' + (y - 3.7 * s);
+      return 'M' + f2(x - 4.6 * s) + ' ' + f2(y + 0.2 * s) + ' L' + f2(x - 1.4 * s) + ' ' + f2(y + 3.5 * s) + ' L' + f2(x + 4.8 * s) + ' ' + f2(y - 3.7 * s);
     }
     if (code === 'A' || code === 'U') {
       var k = 3.6 * s;
-      return 'M' + (x - k) + ' ' + (y - k) + ' L' + (x + k) + ' ' + (y + k) + ' M' + (x + k) + ' ' + (y - k) + ' L' + (x - k) + ' ' + (y + k);
+      return 'M' + f2(x - k) + ' ' + f2(y - k) + ' L' + f2(x + k) + ' ' + f2(y + k) + ' M' + f2(x + k) + ' ' + f2(y - k) + ' L' + f2(x - k) + ' ' + f2(y + k);
     }
     return '';
   }
@@ -149,7 +150,8 @@
   }
 
   function mount(root) {
-    var state = { sector: 'manufacturing', sel: 0, mode: 'dark' };
+    var state = { sector: ORDER[0], sel: 0, mode: 'dark' };
+    var wedges = [];
 
     var top = h('div', 'db-top', null, root);
     var sectorGroup = h('div', 'db-seg db-sectors', null, top);
@@ -158,7 +160,7 @@
     var sectorButtons = ORDER.map(function (k) {
       var b = h('button', null, DATA[k].name, sectorGroup);
       b.type = 'button';
-      b.addEventListener('click', function () { state.sector = k; state.sel = 0; render(); });
+      b.addEventListener('click', function () { state.sector = k; state.sel = 0; build(); });
       return b;
     });
     var modeGroup = h('div', 'db-seg db-mode', null, top);
@@ -167,7 +169,7 @@
     var modeButtons = [['dark', 'Dark'], ['light', 'Light']].map(function (m) {
       var b = h('button', null, m[1], modeGroup);
       b.type = 'button';
-      b.addEventListener('click', function () { state.mode = m[0]; render(); });
+      b.addEventListener('click', function () { state.mode = m[0]; build(); });
       return [m[0], b];
     });
 
@@ -186,7 +188,8 @@
     h('div', 'db-note', 'Inner three rings: the setting firms face. Outer five rings: what firms do. Wedge size = number of firms. Read each wedge from the centre outwards. Click a wedge to read about it.', foot);
     h('div', 'db-source', 'Based on GS4S Policy brief no. 4.', foot);
 
-    function render() {
+    /* Draw the circle for the current sector and colours. */
+    function build() {
       var P = PALETTES[state.mode];
       var D = DATA[state.sector];
       var total = D.paths.reduce(function (t, p) { return t + p[0]; }, 0);
@@ -198,10 +201,10 @@
       modeButtons.forEach(function (m) { m[1].setAttribute('aria-pressed', m[0] === state.mode ? 'true' : 'false'); });
 
       var a = HALF;
-      var wedges = D.paths.map(function (p, i) {
+      wedges = D.paths.map(function (p, i) {
         var a0 = a, a1 = a + span * p[0] / total;
         a = a1;
-        return { i: i, n: p[0], codes: p[1], take: p[2], a0: a0, a1: a1, mid: (a0 + a1) / 2 };
+        return { i: i, n: p[0], codes: p[1], take: p[2], a0: a0, a1: a1, mid: (a0 + a1) / 2, cells: [], marks: [] };
       });
 
       var svg = el('svg', { viewBox: '0 0 700 700', role: 'group', 'aria-label': D.name + ': ' + D.paths.length + ' pathways, ' + total + ' firms' });
@@ -213,31 +216,25 @@
       var gHits = el('g', {}, svg);
 
       wedges.forEach(function (w) {
-        var o = w.i === state.sel ? 1 : P.dim;
         for (var k = 0; k < 8; k++) {
           var c = w.codes[k];
-          el('path', { d: sect(w.a0, w.a1, R[k], R[k + 1]), fill: P[c][0], opacity: o, stroke: P.gap, 'stroke-width': 1.5 }, gCells);
+          w.cells.push(el('path', { d: sect(w.a0, w.a1, R[k], R[k + 1]), fill: P[c][0], stroke: P.gap, 'stroke-width': 1.5 }, gCells));
           if (P[c][1]) {
             var p = xy((R[k] + R[k + 1]) / 2, w.mid);
-            el('path', { d: markPath(c, p[0], p[1]), fill: 'none', stroke: P[c][1], 'stroke-width': P[c][2], 'stroke-linecap': 'round', 'stroke-linejoin': 'round', opacity: (c === 'H' && P.hDim && w.i !== state.sel) ? P.hDim : o }, gMarks);
+            var m = el('path', { d: markPath(c, p[0], p[1]), fill: 'none', stroke: P[c][1], 'stroke-width': P[c][2], 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, gMarks);
+            m.dbCode = c;
+            w.marks.push(m);
           }
         }
         var desc = RINGS.map(function (r, k) { return (r[0] + ' ' + r[1]).trim() + ': ' + STATES[w.codes[k]].toLowerCase(); }).join('; ');
-        var hit = el('path', {
-          'class': 'db-hit', d: sect(w.a0, w.a1, R[0], R[8]), fill: 'transparent',
-          stroke: w.i === state.sel ? P.sel : 'none', 'stroke-width': 2,
-          tabindex: 0, role: 'button', 'aria-pressed': w.i === state.sel ? 'true' : 'false',
+        w.hit = el('path', {
+          'class': 'db-hit', d: sect(w.a0, w.a1, R[0], R[8]), fill: 'transparent', 'stroke-width': 2,
+          tabindex: 0, role: 'button',
           'aria-label': 'Pathway ' + (w.i + 1) + ', ' + w.n + ' firms. ' + desc
         }, gHits);
-        var pick = function () {
-          var hadFocus = document.activeElement === hit;
-          state.sel = w.i;
-          render();
-          if (hadFocus) focusHit(w.i);
-        };
-        hit.addEventListener('click', pick);
-        hit.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); }
+        w.hit.addEventListener('click', function () { select(w.i); });
+        w.hit.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(w.i); }
         });
       });
 
@@ -246,11 +243,9 @@
         el('path', { d: sect(-HALF, HALF, R[k], R[k + 1]), fill: k < 3 ? P.lblSet : P.lblAct, stroke: P.lblLine, 'stroke-width': 1 }, gLabels);
         var y = CX - (R[k] + R[k + 1]) / 2;
         var two = RINGS[k][1] !== '';
-        var t1 = el('text', { x: CX, y: two ? y - 2.5 : y + 4, 'text-anchor': 'middle', 'font-size': 11.5, 'font-weight': 600, fill: P.lblBold, 'aria-hidden': 'true' }, gLabels);
-        t1.textContent = RINGS[k][0];
+        el('text', { x: CX, y: two ? y - 2.5 : y + 4, 'text-anchor': 'middle', 'font-size': 11.5, 'font-weight': 600, fill: P.lblBold, 'aria-hidden': 'true' }, gLabels).textContent = RINGS[k][0];
         if (two) {
-          var t2 = el('text', { x: CX, y: y + 9.5, 'text-anchor': 'middle', 'font-size': 10.5, fill: P.lblText, 'aria-hidden': 'true' }, gLabels);
-          t2.textContent = RINGS[k][1];
+          el('text', { x: CX, y: y + 9.5, 'text-anchor': 'middle', 'font-size': 10.5, fill: P.lblText, 'aria-hidden': 'true' }, gLabels).textContent = RINGS[k][1];
         }
       }
 
@@ -267,14 +262,28 @@
       el('text', { x: CX, y: CX + 23, 'text-anchor': 'middle', 'font-size': 15, fill: P.hubSub }, gHub).textContent = D.paths.length + ' pathways';
 
       fig.replaceChildren(svg);
+      select(state.sel);
+    }
 
-      /* Side text: in the column on the same side as the selected wedge */
-      var w = wedges[state.sel];
+    /* Highlight one wedge and show its text; the circle itself is not redrawn. */
+    function select(i) {
+      var P = PALETTES[state.mode];
+      var D = DATA[state.sector];
+      state.sel = i;
+      wedges.forEach(function (w) {
+        var on = w.i === i;
+        var o = on ? 1 : P.dim;
+        w.cells.forEach(function (c) { c.setAttribute('opacity', o); });
+        w.marks.forEach(function (m) {
+          m.setAttribute('opacity', (!on && m.dbCode === 'H' && P.hDim) ? P.hDim : o);
+        });
+        w.hit.setAttribute('stroke', on ? P.sel : 'none');
+        w.hit.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      var w = wedges[i];
       var onRight = Math.sin(w.mid * Math.PI / 180) > 0;
-      var target = onRight ? right : left;
       (onRight ? left : right).replaceChildren();
-      fillPanel(target, P, D, w.i, w.n, w.codes, w.take);
-      fitHeight();
+      fillPanel(onRight ? right : left, P, D, w.i, w.n, w.codes, w.take);
     }
 
     function fillPanel(target, P, D, i, n, codes, takeText) {
@@ -294,13 +303,14 @@
       });
       var take = h('div', 'db-take', null, target);
       h('div', 'db-title', 'Takeaway', take);
-      h('div', 'db-items db-take-text', takeText, take);
+      h('div', 'db-items', takeText, take);
     }
 
-    /* Keep the legend in one place: the figure row is as tall as the
-       tallest pathway text of any sector at the current width. */
+    /* Fixed heights, so nothing moves when switching sector or wedge:
+       the intro is as tall as the tallest sector headline, and the figure
+       row as tall as the tallest pathway text, at the current width.
+       Runs on load, when fonts arrive and when the width changes. */
     function fitHeight() {
-      /* Same intro height for every sector, so the figure never moves */
       intro.style.minHeight = '';
       var cur = DATA[state.sector], tallest = 0;
       ORDER.forEach(function (k) {
@@ -329,24 +339,26 @@
       body.style.minHeight = Math.ceil(Math.max(max, fig.getBoundingClientRect().height)) + 'px';
     }
 
-    var resizeTimer;
+    var lastWidth = window.innerWidth, resizeTimer;
     window.addEventListener('resize', function () {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(fitHeight, 100);
     });
+
+    build();
+    fitHeight();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeight);
-
-    function focusHit(i) {
-      var hits = fig.querySelectorAll('.db-hit');
-      if (hits[i]) hits[i].focus();
-    }
-
-    render();
   }
 
   function init() {
     var roots = document.querySelectorAll('.dartboard');
-    for (var i = 0; i < roots.length; i++) mount(roots[i]);
+    for (var i = 0; i < roots.length; i++) {
+      if (roots[i].hasAttribute('data-mounted')) continue; /* script loaded twice */
+      roots[i].setAttribute('data-mounted', '');
+      mount(roots[i]);
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

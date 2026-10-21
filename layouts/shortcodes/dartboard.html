@@ -1,2 +1,5 @@
+{{- $css := resources.Get "css/dartboard.css" | minify | fingerprint -}}
+{{- $js := resources.Get "js/dartboard.js" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <div class="dartboard"></div>
-<script src="{{ "js/dartboard.js" | relURL }}" defer></script>
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

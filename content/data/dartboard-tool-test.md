@@ -11,6 +11,8 @@ A live test version of the policy dartboard tool developed for the Horizon Europ
 
 The figure below showcases consistent ways in which multinational enterprises in Germany, Estonia, Switzerland and the Netherlands successfully address skill shortages.
 
+Javascript must be enabled to see the dartboard tool.
+
 ## Download
 
 + Forthcoming.

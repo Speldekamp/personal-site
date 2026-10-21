@@ -1,0 +1,183 @@
+/* Extra Newsreader styles used only here: 600 (ring labels) and italic
+   (source line). Same Fontsource files as the site's 400/500. */
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-ext-400-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-400-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* Dartboard tool (layouts/shortcodes/dartboard.html, assets/js/dartboard.js).
+   Loaded only on pages that use the shortcode.
+   Breaks out of the 720px text column to up to 1560px:
+   [takeaway][pathway] [figure] [pathway][takeaway]. */
+.dartboard {
+    width: min(1560px, calc(100vw - 48px));
+    margin: 24px 0 0 calc(50% - min(780px, calc(50vw - 24px)));
+    color: var(--mid);
+}
+.dartboard .db-top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.dartboard .db-seg {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+.dartboard .db-seg button {
+    font: inherit;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    padding: 9px 20px;
+    min-height: 44px;
+    cursor: pointer;
+}
+.dartboard .db-seg button[aria-pressed="true"] {
+    background: var(--entry);
+    color: var(--light);
+    box-shadow: inset 0 0 0 1px var(--tertiary);
+}
+.dartboard .db-seg button:focus-visible {
+    outline: 2px solid var(--mid);
+    outline-offset: 2px;
+}
+.dartboard .db-mode {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.dartboard .db-intro {
+    text-align: center;
+    margin: 22px auto 22px;
+    max-width: 1000px;
+}
+.dartboard .db-head {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--light);
+}
+.dartboard .db-sub {
+    font-size: 24px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin-top: 4px;
+}
+.dartboard .db-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 560px) minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+/* Panels start at a fixed height, so the pathway heading never moves. */
+.dartboard .db-panel {
+    display: flex;
+    gap: 28px;
+    padding-top: 90px;
+}
+.dartboard .db-left { flex-direction: row-reverse; }
+.dartboard .db-panel:empty { padding-top: 0; }
+.dartboard .db-path,
+.dartboard .db-take {
+    flex: 1 1 0;
+    min-width: 0;
+}
+.dartboard .db-fig svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    font-family: inherit;
+}
+.dartboard .db-hit { cursor: pointer; outline: none; }
+@media (hover: hover) {
+    .dartboard .db-hit:hover { fill: rgba(255, 255, 255, 0.07); }
+    .dartboard .db-seg button:hover { color: var(--light); }
+}
+.dartboard .db-hit:focus-visible { stroke: var(--light); stroke-width: 2.5; }
+.dartboard .db-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--light);
+    line-height: 1.25;
+}
+.dartboard .db-firms {
+    font-size: 16px;
+    color: var(--muted);
+    margin: 2px 0 18px;
+}
+.dartboard .db-group + .db-group { margin-top: 14px; }
+.dartboard .db-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: var(--mid);
+    margin-bottom: 3px;
+}
+.dartboard .db-swatch { flex: none; }
+.dartboard .db-items {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--muted);
+}
+.dartboard .db-take .db-title { margin-bottom: 6px; }
+.dartboard .db-foot {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.dartboard .db-note,
+.dartboard .db-source {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 720px;
+}
+.dartboard .db-source { font-style: italic; }
+/* Less room: takeaway goes under the pathway text */
+@media (max-width: 1320px) {
+    .dartboard .db-panel,
+    .dartboard .db-left { flex-direction: column; gap: 22px; padding-top: 40px; }
+    .dartboard .db-body { gap: 32px; }
+}
+@media (max-width: 1040px) {
+    .dartboard .db-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .dartboard .db-mode { position: static; }
+}
+@media (max-width: 1000px) {
+    .dartboard .db-body {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 440px) minmax(0, 1fr);
+        gap: 24px;
+    }
+    .dartboard .db-panel, .dartboard .db-left { padding-top: 0; }
+}
+@media (max-width: 860px) {
+    .dartboard .db-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .dartboard .db-mode { position: static; }
+    .dartboard .db-body { grid-template-columns: minmax(0, 1fr); }
+    .dartboard .db-fig {
+        order: -1;
+        width: 100%;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+    .dartboard .db-panel:empty { display: none; }
+}
