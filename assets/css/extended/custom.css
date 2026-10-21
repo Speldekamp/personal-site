@@ -452,7 +452,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
 .dartboard .db-intro {
     text-align: center;
     margin: 22px auto 22px;
-    max-width: 720px;
+    max-width: 1000px;
 }
 .dartboard .db-head {
     font-size: 24px;

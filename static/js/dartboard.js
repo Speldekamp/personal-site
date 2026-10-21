@@ -281,7 +281,7 @@
       target.replaceChildren();
       var main = h('div', 'db-path', null, target);
       h('div', 'db-title', 'Pathway ' + (i + 1), main);
-      h('div', 'db-firms', n + (n === 1 ? ' firm' : ' firms') + ' in ' + (D.name === D.name.toUpperCase() ? D.name : D.name.toLowerCase()), main);
+      h('div', 'db-firms', n + (n === 1 ? ' firm' : ' firms'), main);
       STATE_ORDER.forEach(function (c) {
         var items = [];
         for (var k = 0; k < 8; k++) if (codes[k] === c) items.push(PHRASES[k]);
@@ -300,6 +300,18 @@
     /* Keep the legend in one place: the figure row is as tall as the
        tallest pathway text of any sector at the current width. */
     function fitHeight() {
+      /* Same intro height for every sector, so the figure never moves */
+      intro.style.minHeight = '';
+      var cur = DATA[state.sector], tallest = 0;
+      ORDER.forEach(function (k) {
+        introHead.textContent = DATA[k].head;
+        introSub.textContent = DATA[k].sub;
+        tallest = Math.max(tallest, intro.getBoundingClientRect().height);
+      });
+      introHead.textContent = cur.head;
+      introSub.textContent = cur.sub;
+      intro.style.minHeight = Math.ceil(tallest) + 'px';
+
       body.style.minHeight = '';
       var cols = getComputedStyle(body).gridTemplateColumns.split(' ').length;
       if (cols < 3) return;
