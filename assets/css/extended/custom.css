@@ -424,7 +424,8 @@ h1, h2, h3, .post-title, .entry-header h2 {
 }
 .dartboard .db-seg button {
     font: inherit;
-    font-size: 17px;
+    font-size: 24px;
+    line-height: 1.2;
     color: var(--muted);
     background: transparent;
     border: 0;
@@ -432,11 +433,6 @@ h1, h2, h3, .post-title, .entry-header h2 {
     padding: 9px 20px;
     min-height: 44px;
     cursor: pointer;
-}
-.dartboard .db-mode button {
-    font-size: 15px;
-    padding: 6px 14px;
-    min-height: 36px;
 }
 .dartboard .db-seg button:hover { color: var(--light); }
 .dartboard .db-seg button[aria-pressed="true"] {
@@ -451,7 +447,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
 .dartboard .db-mode {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 100px;
 }
 .dartboard .db-intro {
     text-align: center;
@@ -465,7 +461,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
     color: var(--light);
 }
 .dartboard .db-sub {
-    font-size: 17px;
+    font-size: 24px;
     line-height: 1.5;
     color: var(--muted);
     margin-top: 4px;
@@ -522,7 +518,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
 }
 .dartboard .db-swatch { flex: none; }
 .dartboard .db-items {
-    font-size: 17px;
+    font-size: 24px;
     line-height: 1.5;
     color: var(--muted);
 }
@@ -535,30 +531,26 @@ h1, h2, h3, .post-title, .entry-header h2 {
     gap: 10px;
     text-align: center;
 }
-.dartboard .db-legend {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 26px;
-    font-size: 16px;
-}
-.dartboard .db-legend-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
 .dartboard .db-note,
 .dartboard .db-source {
-    font-size: 14px;
+    font-size: 17px;
     color: var(--muted);
     max-width: 720px;
 }
-.dartboard .db-source { font-style: italic; font-size: 13px; }
+.dartboard .db-source { font-style: italic; }
 /* Less room: takeaway goes under the pathway text */
 @media (max-width: 1320px) {
     .dartboard .db-panel,
     .dartboard .db-left { flex-direction: column; gap: 22px; padding-top: 40px; }
     .dartboard .db-body { gap: 32px; }
+}
+@media (max-width: 1240px) {
+    .dartboard .db-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .dartboard .db-mode { position: static; }
 }
 @media (max-width: 1000px) {
     .dartboard .db-body {

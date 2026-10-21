@@ -183,9 +183,8 @@
     right.setAttribute('aria-live', 'polite');
 
     var foot = h('div', 'db-foot', null, root);
-    var legend = h('div', 'db-legend', null, foot);
     h('div', 'db-note', 'Inner three rings: the setting firms face. Outer five rings: what firms do. Wedge size = number of firms. Read each wedge from the centre outwards. Click a wedge to read about it.', foot);
-    h('div', 'db-source', 'Based on Table 1 of GS4S Policy brief no. 4.', foot);
+    h('div', 'db-source', 'Based on GS4S Policy brief no. 4', foot);
 
     function render() {
       var P = PALETTES[state.mode];
@@ -262,21 +261,12 @@
       });
       el('circle', { cx: CX, cy: CX, r: R[8] + 2, fill: 'none', stroke: P.outline, 'stroke-width': 2 }, gLines);
 
-      /* Centre: sector, pathways, firms */
+      /* Centre: sector and number of pathways */
       el('circle', { cx: CX, cy: CX, r: R[0] - 3, fill: P.hub, stroke: P.hubLine, 'stroke-width': 1 }, gHub);
-      el('text', { x: CX, y: CX - 8, 'text-anchor': 'middle', 'font-size': 24, 'font-weight': 500, fill: P.hubText }, gHub).textContent = D.name;
-      el('text', { x: CX, y: CX + 18, 'text-anchor': 'middle', 'font-size': 15, fill: P.hubSub }, gHub).textContent = D.paths.length + ' pathways';
-      el('text', { x: CX, y: CX + 38, 'text-anchor': 'middle', 'font-size': 15, fill: P.hubSub }, gHub).textContent = total + ' firms';
+      el('text', { x: CX, y: CX - 3, 'text-anchor': 'middle', 'font-size': 24, 'font-weight': 500, fill: P.hubText }, gHub).textContent = D.name;
+      el('text', { x: CX, y: CX + 23, 'text-anchor': 'middle', 'font-size': 15, fill: P.hubSub }, gHub).textContent = D.paths.length + ' pathways';
 
       fig.replaceChildren(svg);
-
-      /* Legend */
-      legend.replaceChildren();
-      STATE_ORDER.forEach(function (c) {
-        var item = h('span', 'db-legend-item', null, legend);
-        swatch(P, c, item);
-        h('span', null, STATES[c], item);
-      });
 
       /* Side text: in the column on the same side as the selected wedge */
       var w = wedges[state.sel];
