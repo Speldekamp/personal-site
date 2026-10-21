@@ -399,3 +399,147 @@ h1, h2, h3, .post-title, .entry-header h2 {
     background-position: 50% 50%;
 }
 
+
+/* Dartboard tool (layouts/shortcodes/dartboard.html, static/js/dartboard.js).
+   Breaks out of the 720px text column to up to 1200px. */
+.dartboard {
+    width: min(1200px, calc(100vw - 48px));
+    margin: 24px 0 0 calc(50% - min(600px, calc(50vw - 24px)));
+    color: var(--mid);
+}
+.dartboard .db-top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+.dartboard .db-seg {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+.dartboard .db-seg button {
+    font: inherit;
+    font-size: 17px;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    padding: 9px 20px;
+    min-height: 44px;
+    cursor: pointer;
+}
+.dartboard .db-mode button {
+    font-size: 15px;
+    padding: 6px 14px;
+    min-height: 36px;
+}
+.dartboard .db-seg button:hover { color: var(--light); }
+.dartboard .db-seg button[aria-pressed="true"] {
+    background: var(--entry);
+    color: var(--light);
+    box-shadow: inset 0 0 0 1px var(--tertiary);
+}
+.dartboard .db-seg button:focus-visible {
+    outline: 2px solid var(--mid);
+    outline-offset: 2px;
+}
+.dartboard .db-mode {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.dartboard .db-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 660px) minmax(0, 1fr);
+    gap: 40px;
+    align-items: center;
+}
+.dartboard .db-fig svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    font-family: inherit;
+}
+.dartboard .db-hit { cursor: pointer; outline: none; }
+.dartboard .db-hit:hover { fill: rgba(255, 255, 255, 0.07); }
+.dartboard .db-hit:focus-visible { stroke: var(--light); stroke-width: 2.5; }
+.dartboard .db-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--light);
+    line-height: 1.25;
+}
+.dartboard .db-firms {
+    font-size: 15px;
+    color: var(--muted);
+    margin: 2px 0 18px;
+}
+.dartboard .db-group + .db-group { margin-top: 14px; }
+.dartboard .db-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 3px;
+}
+.dartboard .db-swatch { flex: none; }
+.dartboard .db-items {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--mid);
+}
+.dartboard .db-foot {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.dartboard .db-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 26px;
+    font-size: 16px;
+}
+.dartboard .db-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.dartboard .db-note,
+.dartboard .db-source {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 720px;
+}
+.dartboard .db-source { font-style: italic; font-size: 13px; }
+@media (max-width: 1100px) {
+    .dartboard .db-body {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 520px) minmax(0, 1fr);
+        gap: 24px;
+    }
+}
+@media (max-width: 860px) {
+    .dartboard .db-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .dartboard .db-mode { position: static; }
+    .dartboard .db-body { grid-template-columns: minmax(0, 1fr); }
+    .dartboard .db-fig {
+        order: -1;
+        width: 100%;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+    .dartboard .db-panel:empty { display: none; }
+}

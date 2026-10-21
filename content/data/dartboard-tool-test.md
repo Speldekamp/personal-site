@@ -13,3 +13,5 @@ summary: "[What the dataset contains, in one or two sentences.]"
 + [Data](https://github.com/spoldov/[repo])
 
 ## Dartboard Tool
+
+{{< dartboard >}}
