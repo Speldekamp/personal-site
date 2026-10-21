@@ -51,7 +51,7 @@
       ]
     }
   };
-  var ORDER = ['manufacturing', 'health', 'construction', 'it'];
+  var ORDER = ['it', 'manufacturing', 'health', 'construction'];
 
   /* Ring labels as in the source figures: first line bold, second line regular. */
   var RINGS = [
