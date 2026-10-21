@@ -21,7 +21,7 @@ Every push to `main` rebuilds and publishes the site through GitHub Actions (`.g
 Copy the example in each section and edit it:
 
 - Paper: `content/papers/example-paper/` (a folder, so the PDF can sit next to `index.md`)
-- Dataset: `content/data/example-dataset.md`
+- Dataset: `content/data/dartboard-tool-test.md`
 - Course: `content/courses/example-course/`
 - Code: `content/code/example-project.md`
 - Blog post: `content/blog/first-post.md`
