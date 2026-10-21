@@ -20,7 +20,7 @@ works on the dark page. The page sets the opacity (usually 0.16–0.22).
 | `draw_valley.py` | paper4 (earlier) | The previous hand-built (procedural) drawing of a hiker on a ledge over a river valley. Args: `OUT.svg PREVIEW.png`. Not traced from any photo. No longer used. |
 | `triangle_band.py` | old7 title band | Builds the triangle band behind the title, each triangle filled with a faint map crop, thinning out at the bottom and sides. Args: `SRC_DIR OUT.png` where SRC_DIR holds the map crops named in the script. Convert the PNG to WebP afterwards. |
 | `light_lines.py` | old7 maps, book2 map | Greyscale; dark ink → opaque light lines, paper → transparent. `--lossless --sharpen` gives the crisp Rome version. |
-| `cutout_figure.py` | book1 | Cuts a figure out of a flat-coloured background (the thesis cover), greyscale with transparency. |
+| `cutout_figure.py` | book1 | Cuts a figure out of a flat-coloured background (the thesis cover), greyscale with transparency. Afterwards (21 Oct) the 900px result was upscaled 1.5× (Lanczos, 1350px), unsharp-masked (RGB radius 1.6 / 140%, alpha 1.2 / 120%) and saved as WebP quality 92, so it stays crisp on high-density screens. A higher-resolution cover scan would do better still. |
 | `render_favicon.js` | favicons | Renders `static/favicon.svg` with Chromium to 16/32/48/180 px PNGs. Build `favicon.ico` from the 16/32/48 PNGs with Pillow (`save(..., sizes=[...], append_images=[...])`). |
 
 The book2 Rome marker (large ring with a dark centre) was drawn onto the light-lines image with
