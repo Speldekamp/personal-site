@@ -13,7 +13,7 @@ This figure works with the data also presented in policy brief no. 4, “Closing
 
 The figure below showcases consistent ways in which multinational enterprises in Germany, Estonia, Switzerland and the Netherlands successfully address skill shortages.
 
-Please note that Javascript must be enabled to see the dartboard tool.
+Please note that JavaScript must be enabled to see the dartboard tool.
 
 ## Download
 
