@@ -3,6 +3,11 @@ title: "Reconciling Perspectives on Clusters"
 date: 2020-01-01
 author: ["Daniël Speldekamp", "Ayse Saka-Helmhout", "Joris Knoben"]
 description: "International Journal of Management Reviews, 2020, 22(1), 75-98."
+featured: true
+pageArt:
+    full: bg-full.svg
+    opacity: 0.22
+    fit: "width"
 summary: "A systematic literature review aiming to reconcile conflicting theories and findings on industrial clusters' economic effects by leveraging configurational theorizing and analysis."
 editPost:
     URL: "https://onlinelibrary.wiley.com/journal/14682370"

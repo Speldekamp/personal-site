@@ -4,10 +4,6 @@ date: 2023-09-01
 author: ["Daniël Speldekamp", "Joris Knoben", "Ayse Saka-Helmhout"]
 description: "Regional Studies, 2023, 57(9), 1649-1665."
 featured: true
-pageArt:
-    full: bg-full.svg
-    opacity: 0.22
-    fit: "width"
 summary: "This paper investigates how intermediaries connect firms and other actors within European aerospace clusters and how this contributes to cluster functioning."
 editPost:
     URL: "https://www.tandfonline.com/journals/cres20"
