@@ -4,8 +4,8 @@
 <path d="M28 88V66H40V52H54V60H64V38H80V56H92V68H100V88"/>
 <path d="M72 38V30"/>
 <path d="M22 88H106"/>
-<path stroke="#676a71" d="M36 96H92"/>
-<path stroke="#676a71" d="M50 103H78"/>
+<path stroke="#5f6268" d="M36 96H92"/>
+<path stroke="#5f6268" d="M50 103H78"/>
 <path stroke-width="2.4" d="M69 46h.01M75 46h.01M69 54h.01M75 54h.01M69 62h.01M75 62h.01M45 60h.01M49 60h.01M45 68h.01M49 68h.01"/>
 </g>
 </svg>

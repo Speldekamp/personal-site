@@ -57,8 +57,8 @@
 }
 
 .entry-content {
-    margin: 20px 10px;
-    color: var(--secondary);
+    margin: 20px 0;           /* in line with the title and the date line */
+    color: var(--content);    /* abstract in the body colour, date/authors below in grey */
     font-size: var(--entrysize);
     line-height: var(--lineheight);
     overflow: hidden;
@@ -68,7 +68,7 @@
 }
 
 .entry-footer {
-    color: var(--content);
+    color: var(--secondary);
     font-size: var(--entrysize);
 }
 

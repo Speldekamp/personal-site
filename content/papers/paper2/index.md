@@ -6,6 +6,7 @@ description: "Research Policy, 2020, 49(3), Article 103921."
 featured: true
 pageArt:
     full: bg-full.svg
+    fullLight: bg-full-light.svg   # light theme: faces in the inverse of the light page colour, so after inverting they match the paper
     opacity: 0.2
     fit: "width"
 summary: "This paper investigates how geographical clustering, business networks, institutions, and firms' internal resources combine to influence innovation performance in the European aerospace industry. We identify seven pathways to innovation, and demonstrate that no single resource is sufficient for innovation. Important: different types of firms benefit from different sets of cluster conditions."

@@ -90,8 +90,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default "favicon-32x32.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | absURL }}">
-<meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
-<meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
+<meta name="theme-color" id="theme-color" content="#1b1c20">{{/* browser bar colour; switched to #f4f2ec in the light theme by baseof.html / assets/js/theme.js */}}
+<meta name="msapplication-TileColor" content="#1b1c20">
 
 {{- /* RSS */}}
 {{ range .AlternativeOutputFormats -}}

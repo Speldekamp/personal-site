@@ -1,21 +1,33 @@
 /* Dark | Light switch (layouts/partials/theme_toggle.html).
-   The site is dark by default; a click is remembered in localStorage "pref-theme".
-   The saved choice is applied before first paint by the inline script in baseof.html. */
+   Before first paint the inline script in baseof.html applies the visitor's saved choice
+   (localStorage "pref-theme"), else the system setting. This file wires up the buttons,
+   keeps following the system setting until the visitor clicks one, and sets the
+   browser bar colour (meta theme-color) to match the page. */
 (function () {
+    var KEY = 'pref-theme';
     var groups = document.querySelectorAll('.theme-toggle');
-    if (!groups.length) return;
+    var meta = document.getElementById('theme-color');
 
-    function save(mode) {
-        try { localStorage.setItem('pref-theme', mode); } catch (e) { /* storage blocked: choice lasts for this page only */ }
+    function saved() {
+        try { var t = localStorage.getItem(KEY); return (t === 'light' || t === 'dark') ? t : null; } catch (e) { return null; }
     }
+    function save(t) {
+        try { localStorage.setItem(KEY, t); } catch (e) { /* storage blocked: choice lasts for this page only */ }
+    }
+    function current() { return document.body.classList.contains('dark') ? 'dark' : 'light'; }
 
     function sync() {
-        var mode = document.body.classList.contains('dark') ? 'dark' : 'light';
+        var t = current();
+        if (meta) meta.setAttribute('content', t === 'dark' ? '#1b1c20' : '#f4f2ec');
         groups.forEach(function (g) {
             g.querySelectorAll('button').forEach(function (b) {
-                b.setAttribute('aria-pressed', b.dataset.theme === mode ? 'true' : 'false');
+                b.setAttribute('aria-pressed', b.dataset.theme === t ? 'true' : 'false');
             });
         });
+    }
+    function apply(t) {
+        document.body.classList.toggle('dark', t === 'dark');
+        sync();
     }
 
     groups.forEach(function (g) {
@@ -23,10 +35,17 @@
         g.addEventListener('click', function (e) {
             var b = e.target.closest('button[data-theme]');
             if (!b) return;
-            document.body.classList.toggle('dark', b.dataset.theme === 'dark');
             save(b.dataset.theme);
-            sync();
+            apply(b.dataset.theme);
         });
     });
+
+    /* Until the visitor picks one, follow changes to the system setting. */
+    if (window.matchMedia) {
+        var mq = window.matchMedia('(prefers-color-scheme: light)');
+        var follow = function (e) { if (!saved()) apply(e.matches ? 'light' : 'dark'); };
+        if (mq.addEventListener) mq.addEventListener('change', follow);
+        else if (mq.addListener) mq.addListener(follow);
+    }
     sync();
 })();

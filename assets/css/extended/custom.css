@@ -43,7 +43,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
 body:not(.dark) {
     --light: #1b1c20;
     --mid: #3a3c42;
-    --muted: #676a71;
+    --muted: #5f6268;        /* 5.0:1 on cards, 5.5:1 on the page */
 
     --theme: #f4f2ec;        /* page background: warm paper */
     --entry: #ebe8e1;        /* cards, code blocks */
@@ -505,4 +505,16 @@ body:not(.dark) .profile_inner .img-light { display: inline; }
 }
 @media (max-width: 600px) {
     .theme-toggle-corner { top: 16px; }
+}
+
+/* Front page: keep the skyline clear of the Dark | Light switch above it on phones and on
+   short windows, where the profile is no longer vertically centred with room to spare. */
+@media (max-width: 600px), (max-height: 700px) {
+    .main .profile { padding-top: 64px; }
+}
+
+/* Phones: tighter header menu so all seven items fit on one line (390px wide and up). */
+@media (max-width: 480px) {
+    #menu li + li { margin-inline-start: 2px; }
+    #menu a { min-width: 40px; letter-spacing: 0; }
 }
