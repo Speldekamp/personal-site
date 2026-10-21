@@ -15,7 +15,8 @@ works on the dark page. The page sets the opacity (usually 0.16–0.22).
 | `trace_photo.py` | paper3 (city photo) | Edge-traces a photo into simplified outlines (SVG + dark-on-white preview). Args: `SRC OUT.svg PREVIEW.png low high eps min_len` (used: `40 110 1.6 22`). **The sky mask (rows above y≈298, cloud band 298–350 except two tower columns) is specific to that photo — edit it for a new one.** |
 | `declutter.py` | paper3 variants | Same trace, then removes clutter at chosen levels: more simplification, drops zig-zag scraps (turning per length), drops lines lying on or next to longer kept lines. Args: `SRC OUTDIR 'JSON levels'`. Variant C (live) used `{"name":"v40","eps":2.0,"min_len":30,"wiggle":15,"near":2.8,"overlap":0.46}`. Same photo-specific sky mask. |
 | `finish_edges.py` | paper3 | Clips a traced SVG to an inset frame and joins nearby cut points along each edge, so buildings cut by the frame get a closing wall or base. Args: `IN.svg OUT.svg PREVIEW.png inset gap` (used: `10 26`). |
-| `draw_valley.py` | paper4 | The original hand-built (procedural) drawing of a hiker on a ledge over a river valley. Args: `OUT.svg PREVIEW.png`. Not traced from any photo. |
+| `trace_horizon_tree.py` | paper4 (live) | Traces a photo of a lone tree on a plain: mountain ridge and plain edge (dimmed), tree outline with cross-hatched canopy, hatched trunk and shadow, and dashes on the plain that are heavy at the bottom and fade towards the horizon. Each line has its own `stroke-opacity`. Args: `SRC OUT.svg PREVIEW.png tree_x tree_scale` (used: `100 1.0`, tree moved left so it clears the text column from about 1160px wide). Thresholds are specific to that photo. |
+| `draw_valley.py` | paper4 (earlier) | The previous hand-built (procedural) drawing of a hiker on a ledge over a river valley. Args: `OUT.svg PREVIEW.png`. Not traced from any photo. No longer used. |
 | `triangle_band.py` | old7 title band | Builds the triangle band behind the title, each triangle filled with a faint map crop, thinning out at the bottom and sides. Args: `SRC_DIR OUT.png` where SRC_DIR holds the map crops named in the script. Convert the PNG to WebP afterwards. |
 | `light_lines.py` | old7 maps, book2 map | Greyscale; dark ink → opaque light lines, paper → transparent. `--lossless --sharpen` gives the crisp Rome version. |
 | `cutout_figure.py` | book1 | Cuts a figure out of a flat-coloured background (the thesis cover), greyscale with transparency. |
@@ -26,4 +27,4 @@ Pillow at the Rome position of the source map; see the git history of
 `content/papers/book2/bg-full.webp`.
 
 Image rights: only use images the user owns or has licensed. Don't trace or clean up
-watermarked stock previews; draw an original instead (as for paper4).
+watermarked stock previews; draw an original instead (as for the earlier paper4 drawing).
