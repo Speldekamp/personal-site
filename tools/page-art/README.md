@@ -29,3 +29,7 @@ Pillow at the Rome position of the source map; see the git history of
 
 Image rights: only use images the user owns or has licensed. Don't trace or clean up
 watermarked stock previews; draw an original instead (as for the earlier paper4 drawing).
+
+## trace_network_map.py (paper3)
+
+`python3 trace_network_map.py SRC.png OUT.svg` turns the user's own flat-colour European cluster network map into a greyscale SVG: countries as faint fills (white borders kept as gaps), network lines found by testing every node pair, circles brightest (blue dimmest, green brighter, yellow near white, hatched yellow/purple kept as light/dark stripes), ragged blurred edge fade on land and lines. Colour thresholds are specific to that image. Used with opacity 0.3, fit width.
