@@ -6,8 +6,8 @@ description: "PhD dissertation, Radboud University Nijmegen, 2021."
 featured: true
 pageArt:
     full: bg-full.webp
-    opacity: 0.16
-    scale: 0.85
+    opacity: 0.13
+    scale: 0.64
     fit: "contain"
 summary: "It is impossible for me to summarize my PhD dissertation in a few sentences. Instead I will just list keywords: industrial clusters, geography, networks, institutions, configurational thinking and analysis."
 editPost:

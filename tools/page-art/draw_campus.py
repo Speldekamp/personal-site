@@ -1,8 +1,7 @@
 """paper2: an original isometric line drawing of a tech-office district (not traced from anything).
 
 Office towers, low campus buildings, a round glass building, parks, parking, roads with cars,
-rooftop details (solar panels, helipads, roof gardens, plant rooms) and rooftop sign panels with
-simple invented marks (no real company logos or names). Light lines (#c9c6bf) on transparent; faces are
+rooftop details (solar panels, helipads, roof gardens, plant rooms). No signs or logos. Light lines (#c9c6bf) on transparent; faces are
 filled with the page colour (#1b1c20) so nearer buildings hide the lines behind them, which is
 invisible on the page itself. The drawing fades out towards the edges through a blurred, ragged
 mask, so it ends organically.
@@ -48,7 +47,7 @@ def ellipse_pts(gx, gy, r, z, n=40, a0=0, a1=2 * math.pi):
             for i in range(n + 1)]
 
 # --- elements ------------------------------------------------------------------------------
-def box(x, y, w, d, h, windows="grid", top_extra=None, sign=None):
+def box(x, y, w, d, h, windows="grid", top_extra=None):
     """building; returns svg. Visible: top, face +x (right), face +y (left)."""
     s = []
     x1, y1 = x + w, y + d
@@ -85,7 +84,6 @@ def box(x, y, w, d, h, windows="grid", top_extra=None, sign=None):
     # parapet
     s.append(polyline([P(x + .15, y + .15, h), P(x1 - .15, y + .15, h), P(x1 - .15, y1 - .15, h), P(x + .15, y1 - .15, h)], 0.4, 0.45, True))
     if top_extra: s += top_extra(x, y, w, d, h)
-    if sign: s += sign_panel(x, y, w, d, h, sign)
     return "".join(s)
 
 def frange(a, b, st):
@@ -131,46 +129,6 @@ def roof_plant(x, y, w, d, h):
         s.append(face([P(bx, by, h + bh), P(bx + bw, by, h + bh), P(bx + bw, by + bd, h + bh), P(bx, by + bd, h + bh)], 0.5, 0.7))
     return s
 
-MARKS = ["ring", "tri", "bars", "wave", "dot", "chevron", "leaf", "grid"]
-
-def mark(cx, cy, r, kind):
-    """a simple invented mark, drawn in screen space"""
-    if kind == "ring":
-        return '<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" stroke-width="0.8"/>' % (cx, cy, r) + \
-               '<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" stroke-width="0.6"/>' % (cx, cy, r * 0.45)
-    if kind == "tri":
-        return polyline([(cx, cy - r), (cx + r * 0.9, cy + r * 0.6), (cx - r * 0.9, cy + r * 0.6)], 0.8, 1, True)
-    if kind == "bars":
-        return "".join(line((cx - r + i * r * 0.7, cy + r * 0.7), (cx - r + i * r * 0.7, cy + r * 0.7 - r * (0.6 + 0.45 * i)), 1.0, 1) for i in range(3))
-    if kind == "wave":
-        pts = [(cx - r + 2 * r * i / 12, cy + r * 0.45 * math.sin(i / 12 * 2 * math.pi)) for i in range(13)]
-        return polyline(pts, 0.8, 1)
-    if kind == "dot":
-        return '<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" stroke-width="0.8"/>' % (cx, cy, r * 0.75, INK)
-    if kind == "chevron":
-        return polyline([(cx - r, cy - r * 0.4), (cx, cy + r * 0.5), (cx + r, cy - r * 0.4)], 1.0, 1)
-    if kind == "leaf":
-        return polyline([(cx - r, cy + r * 0.6), (cx, cy - r * 0.7), (cx + r, cy + r * 0.6), (cx, cy + r * 0.2)], 0.8, 1, True)
-    if kind == "grid":
-        s = ""
-        for i in range(2):
-            for j in range(2):
-                s += '<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="none" stroke-width="0.7"/>' % (
-                    cx - r + i * r * 1.05, cy - r + j * r * 1.05, r * 0.9, r * 0.9)
-        return s
-    return ""
-
-def sign_panel(x, y, w, d, h, kind):
-    """an upright sign on the roof, parallel to the left face, with an invented mark"""
-    a, b = x + w * 0.2, x + w * 0.8
-    yy = y + d - 0.6
-    ph = min(2.6, 0.45 * (b - a))
-    s = [line(P(a + .3, yy, h), P(a + .3, yy, h + 0.5), 0.5, 0.7), line(P(b - .3, yy, h), P(b - .3, yy, h + 0.5), 0.5, 0.7)]
-    s.append(face([P(a, yy, h + 0.5), P(b, yy, h + 0.5), P(b, yy, h + 0.5 + ph), P(a, yy, h + 0.5 + ph)], 0.8, 0.95))
-    mx, my = P((a + b) / 2, yy, h + 0.5 + ph / 2)
-    s.append('<g stroke-opacity="0.95">' + mark(mx, my, ph * S * 0.32, kind) + "</g>")
-    return s
-
 def round_building(cx, cy, r, h):
     s = []
     # body: front half outline + vertical mullions on the visible side
@@ -205,14 +163,6 @@ def car(gx, gy, along_x):
         face([P(x, y + wd, 0), P(x + l, y + wd, 0), P(x + l, y + wd, hh), P(x, y + wd, hh)], 0.5, 0.75),
         face([P(x, y, hh), P(x + l, y, hh), P(x + l, y + wd, hh), P(x, y + wd, hh)], 0.5, 0.75)])
 
-def billboard(gx, gy, kind):
-    bx, by = P(gx, gy, 0)
-    top = P(gx, gy, 3.2)
-    r = S * 0.9
-    return (line((bx, by), (top[0], top[1] + r), 0.7, 0.8) +
-            '<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" stroke-width="0.9"/>' % (top[0], top[1], r, BG) +
-            '<g stroke-opacity="0.95">' + mark(top[0], top[1], r * 0.55, kind) + "</g>")
-
 # --- layout --------------------------------------------------------------------------------
 BLOCK, ROAD = 8.0, 2.4
 NX, NY = 10, 10
@@ -231,14 +181,6 @@ for i in range(NX + 1):
             ground.append(line(P(m, t, 0), P(m, t + 0.6, 0), 0.4, 0.4))
             ground.append(line(P(t, m, 0), P(t + 0.6, m, 0), 0.4, 0.4))
 add(-1e9, "".join(ground))
-
-marks = MARKS[:]
-rng.shuffle(marks)
-mi = 0
-def next_mark():
-    global mi
-    m = marks[mi % len(marks)]; mi += 1
-    return m
 
 centre = (NX - 1) / 2
 for i in range(NX):
@@ -281,9 +223,9 @@ for i in range(NX):
             h = (rng.uniform(9, 15) if tall else rng.uniform(2.2, 5.5)) * hmul + 1
             win = rng.choice(["grid", "glass", "bands"]) if h > 6 else rng.choice(["bands", "grid"])
             extra = rng.choice([roof_solar, roof_plant, roof_garden, roof_helipad, None]) if w > 3 and d > 3 else roof_plant
-            sign = next_mark() if (w > 3 and rng.random() < 0.45) else None
-            if sign and extra in (roof_garden, roof_helipad): extra = roof_plant
-            add(x + w + y + d, box(x, y, w, d, h, win, extra, sign))
+            if w > 3 and rng.random() < 0.45 and extra in (roof_garden, roof_helipad):
+                extra = roof_plant          # (where a rooftop sign used to stand; keeps the layout)
+            add(x + w + y + d, box(x, y, w, d, h, win, extra))
         # a few trees along the block edge
         for t in frange(bx + 1, bx + BLOCK, 2.2):
             add(t + by + BLOCK + 0.6, tree_svg(t, by + BLOCK + 0.55, 0, 0.45))
