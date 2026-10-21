@@ -1,0 +1,29 @@
+# Page-art tools
+
+Scripts used to make the faint background images on the paper pages (`pageArt` in a paper's
+front matter; see `layouts/_default/single.html` and the page-art section of
+`assets/css/extended/custom.css`). Hugo ignores this folder; nothing here is published.
+
+Requirements: Python 3 with Pillow, NumPy, OpenCV (`cv2`); Node with Playwright for
+`render_favicon.js`; `pdftoppm` (poppler) to turn PDF pages into images.
+
+All site art uses the mid text colour `#c9c6bf` for lines, on a transparent background, so it
+works on the dark page. The page sets the opacity (usually 0.16–0.22).
+
+| Script | Used for | What it does |
+| --- | --- | --- |
+| `trace_photo.py` | paper3 (city photo) | Edge-traces a photo into simplified outlines (SVG + dark-on-white preview). Args: `SRC OUT.svg PREVIEW.png low high eps min_len` (used: `40 110 1.6 22`). **The sky mask (rows above y≈298, cloud band 298–350 except two tower columns) is specific to that photo — edit it for a new one.** |
+| `declutter.py` | paper3 variants | Same trace, then removes clutter at chosen levels: more simplification, drops zig-zag scraps (turning per length), drops lines lying on or next to longer kept lines. Args: `SRC OUTDIR 'JSON levels'`. Variant C (live) used `{"name":"v40","eps":2.0,"min_len":30,"wiggle":15,"near":2.8,"overlap":0.46}`. Same photo-specific sky mask. |
+| `finish_edges.py` | paper3 | Clips a traced SVG to an inset frame and joins nearby cut points along each edge, so buildings cut by the frame get a closing wall or base. Args: `IN.svg OUT.svg PREVIEW.png inset gap` (used: `10 26`). |
+| `draw_valley.py` | paper4 | The original hand-built (procedural) drawing of a hiker on a ledge over a river valley. Args: `OUT.svg PREVIEW.png`. Not traced from any photo. |
+| `triangle_band.py` | old7 title band | Builds the triangle band behind the title, each triangle filled with a faint map crop, thinning out at the bottom and sides. Args: `SRC_DIR OUT.png` where SRC_DIR holds the map crops named in the script. Convert the PNG to WebP afterwards. |
+| `light_lines.py` | old7 maps, book2 map | Greyscale; dark ink → opaque light lines, paper → transparent. `--lossless --sharpen` gives the crisp Rome version. |
+| `cutout_figure.py` | book1 | Cuts a figure out of a flat-coloured background (the thesis cover), greyscale with transparency. |
+| `render_favicon.js` | favicons | Renders `static/favicon.svg` with Chromium to 16/32/48/180 px PNGs. Build `favicon.ico` from the 16/32/48 PNGs with Pillow (`save(..., sizes=[...], append_images=[...])`). |
+
+The book2 Rome marker (large ring with a dark centre) was drawn onto the light-lines image with
+Pillow at the Rome position of the source map; see the git history of
+`content/papers/book2/bg-full.webp`.
+
+Image rights: only use images the user owns or has licensed. Don't trace or clean up
+watermarked stock previews; draw an original instead (as for paper4).
