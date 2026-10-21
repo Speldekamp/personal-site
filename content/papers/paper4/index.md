@@ -16,7 +16,8 @@ editPost:
 
 ##### Download
 
-+ [Paper](https://doi.org/10.1080/13662716.2022.2124906) <!-- or paper.pdf and put paper.pdf in this folder -->
++ [Paper (Paid)](https://doi.org/10.1080/13662716.2022.2124906)
++ [Paper (Freely Accessible)](https://www.researchgate.net/profile/Ayse-Saka-helmhout/publication/326281441_A_Configurational_Analysis_of_Agglomerations_Networks_and_Institutions_in_European_Aerospace/links/5fe303a492851c13feb1ac54/A-Configurational-Analysis-of-Agglomerations-Networks-and-Institutions-in-European-Aerospace.pdf)
 
 ##### Abstract
 

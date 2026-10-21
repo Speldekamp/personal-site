@@ -10,7 +10,7 @@ Usage: python3 trace_horizon_tree.py SRC.jpg OUT.svg PREVIEW.png [tree_x] [tree_
 
 Every line has its own opacity (stroke-opacity, on top of the page's pageArt opacity):
 the mountains are dimmer than the rest; the plain's dashes fade from the bottom (heavy,
-most visible) to the horizon (thin, faint). PREVIEW.png shows the drawing light-on-dark.
+most visible) to the horizon (thin, faint). Near the left, right and bottom edges every line\nfades out, starting at a ragged distance from the edge. PREVIEW.png shows it light-on-dark.
 
 The thresholds (horizon search band rows 420-500, tree box x 215-375 / y 400-535) are specific
 to the source photo; adjust them for another photo.
@@ -196,13 +196,58 @@ def clip(p):
     if len(cur) > 1: out.append(np.array(cur))
     return [poly(q, 0.4) for q in out if np.hypot(*(q[-1] - q[0])) > 1.5]
 
-paths = [(q, w, o) for p, w, o in paths for q in clip(p)] + tree_paths
+paths = [(q, w, o) for p, w, o in paths for q in clip(p)]
+
+# --- organic edges: everything fades out before the canvas ends (left, right, bottom) --------
+# The fade starts at a ragged distance from each edge (smooth noise), so the drawing seems to
+# run out on its own rather than being cut by a straight gradient.
+SIDE_RAMP, BOTTOM_RAMP = 90.0, 70.0
+nrng = np.random.default_rng(7)
+def ragged(n, lo, hi, k=9):
+    """smooth random offsets along an edge of length n"""
+    pts = nrng.uniform(lo, hi, k + 2)
+    return np.interp(np.arange(n), np.linspace(0, n - 1, k + 2), pts)
+off_l, off_r, off_b = ragged(H, 6, 34), ragged(H, 6, 34), ragged(W, 4, 26, 14)
+
+def edge_fade(x, y):
+    xi, yi = int(np.clip(x, 0, W - 1)), int(np.clip(y, 0, H - 1))
+    d = min((x - off_l[yi]) / SIDE_RAMP, (W - x - off_r[yi]) / SIDE_RAMP, (H - y - off_b[xi]) / BOTTOM_RAMP)
+    d = float(np.clip(d, 0, 1))
+    return d * d * (3 - 2 * d)                     # smoothstep
+
+def split_for_fade(p, step=12.0):
+    """cut long lines into short pieces near the edges so each piece gets its own opacity"""
+    pts = [p[0]]
+    for a, b in zip(p[:-1], p[1:]):
+        n = max(1, int(np.hypot(*(b - a)) / 3))
+        pts += [a + (b - a) * k / n for k in range(1, n + 1)]
+    out, cur, acc = [], [pts[0]], 0.0
+    for q in pts[1:]:
+        acc += np.hypot(*(q - cur[-1])); cur.append(q)
+        near = edge_fade(*q) < 1
+        if acc >= step and near:
+            out.append(np.array(cur)); cur, acc = [q], 0.0
+    if len(cur) > 1: out.append(np.array(cur))
+    return [poly(c, 0.4) for c in out]
+
+faded = []
+for p, w, o in paths:
+    pieces = split_for_fade(p) if any(edge_fade(*q) < 1 for q in p) or len(p) == 2 and \
+        np.hypot(*(p[-1] - p[0])) > 24 else [p]
+    for q in pieces:
+        m = q.mean(0)
+        o2 = o * edge_fade(*m)
+        if o2 >= 0.05:
+            faded.append((q, w, o2))
+# the tree itself is not faded, its shadow (the 0.7-wide strokes) is
+tree_paths = [(p, w, o * edge_fade(*p.mean(0)) if w == 0.7 else o) for p, w, o in tree_paths]
+paths = faded + [t for t in tree_paths if t[2] >= 0.05]
 
 # --- write -------------------------------------------------------------------------------------
 def d(p): return "M" + "L".join("%.1f %.1f" % (a, b) for a, b in p)
 groups = {}
 for p, w, o in paths:
-    groups.setdefault((round(w, 2), round(o, 1)), []).append(d(p))
+    groups.setdefault((round(w, 2), max(0.1, round(o, 1))), []).append(d(p))
 svg = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d">' % (W, H, W, H),
        '<g fill="none" stroke="#c9c6bf" stroke-linecap="round" stroke-linejoin="round">']
 for (w, o), ds in sorted(groups.items()):
