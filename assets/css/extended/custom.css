@@ -447,7 +447,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
 .dartboard .db-mode {
     position: absolute;
     top: 0;
-    right: 100px;
+    right: 0;
 }
 .dartboard .db-intro {
     text-align: center;
@@ -503,7 +503,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
     line-height: 1.25;
 }
 .dartboard .db-firms {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--muted);
     margin: 2px 0 18px;
 }
@@ -512,13 +512,13 @@ h1, h2, h3, .post-title, .entry-header h2 {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 15px;
+    font-size: 16px;
     color: var(--mid);
     margin-bottom: 3px;
 }
 .dartboard .db-swatch { flex: none; }
 .dartboard .db-items {
-    font-size: 24px;
+    font-size: 16px;
     line-height: 1.5;
     color: var(--muted);
 }
@@ -544,7 +544,7 @@ h1, h2, h3, .post-title, .entry-header h2 {
     .dartboard .db-left { flex-direction: column; gap: 22px; padding-top: 40px; }
     .dartboard .db-body { gap: 32px; }
 }
-@media (max-width: 1240px) {
+@media (max-width: 1040px) {
     .dartboard .db-top {
         flex-direction: column;
         align-items: center;
