@@ -518,3 +518,7 @@ body:not(.dark) .profile_inner .img-light { display: inline; }
     #menu li + li { margin-inline-start: 2px; }
     #menu a { min-width: 40px; letter-spacing: 0; }
 }
+
+/* Credit and funding lines under the dartboard tool */
+.post-content .credits { color: var(--secondary); font-size: 15px; margin-top: var(--content-gap); }
+.post-content .credits + .credits { margin-top: 0; }
