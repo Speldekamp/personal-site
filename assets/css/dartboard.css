@@ -106,8 +106,9 @@
 }
 .dartboard .db-firms {
     font-size: 16px;
+    line-height: 1.5;       /* same line box and gap under the heading as the Takeaway text, */
     color: var(--muted);
-    margin: 2px 0 18px;
+    margin: 6px 0 18px;     /* so "N firms" and the takeaway's first line share a baseline */
 }
 .dartboard .db-group + .db-group { margin-top: 14px; }
 .dartboard .db-label {
