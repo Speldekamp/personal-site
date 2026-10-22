@@ -1,9 +1,7 @@
-/* Extra Newsreader styles used only here: 600 (ring labels) and italic
-   (source line). Same Fontsource files as the site's 400/500. */
+/* Extra Newsreader style used only here: 600 (ring labels, "Click a wedge").
+   Same Fontsource files as the site's 400/500. */
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-ext-400-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/newsreader/newsreader-latin-400-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 /* Dartboard tool (layouts/shortcodes/dartboard.html, assets/js/dartboard.js).
    Loaded only on pages that use the shortcode. Colours follow the page theme.
@@ -15,7 +13,6 @@
     color: var(--mid);
 }
 .dartboard .db-top {
-    position: relative;
     display: flex;
     justify-content: center;
 }
@@ -134,26 +131,16 @@
     gap: 10px;
     text-align: center;
 }
-.dartboard .db-note,
-.dartboard .db-source {
+.dartboard .db-note {
     font-size: 16px;
     color: var(--muted);
-    max-width: 720px;
 }
-.dartboard .db-source { font-style: italic; }
 .dartboard .db-note strong { font-weight: 600; } /* "Click a wedge to read about it." */
 /* Less room: takeaway goes under the pathway text */
 @media (max-width: 1320px) {
     .dartboard .db-panel,
     .dartboard .db-left { flex-direction: column; gap: 22px; padding-top: 40px; }
     .dartboard .db-body { gap: 32px; }
-}
-@media (max-width: 1000px) {
-    .dartboard .db-body {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 440px) minmax(0, 1fr);
-        gap: 24px;
-    }
-    .dartboard .db-panel, .dartboard .db-left { padding-top: 0; }
 }
 /* One column below 1100px: the figure with its note line, then the pathway text.
    Pathway and takeaway side by side, up to 720px wide; stacked below 640px. */
