@@ -181,12 +181,13 @@
 
     var body = h('div', 'db-body', null, root);
     var left = h('div', 'db-panel db-left', null, body);
-    var fig = h('div', 'db-fig', null, body);
+    var mid = h('div', 'db-mid', null, body);   /* figure with the note line under it */
+    var fig = h('div', 'db-fig', null, mid);
     var right = h('div', 'db-panel db-right', null, body);
     left.setAttribute('aria-live', 'polite');
     right.setAttribute('aria-live', 'polite');
 
-    var foot = h('div', 'db-foot', null, root);
+    var foot = h('div', 'db-foot', null, mid);
     var note = h('div', 'db-note', 'Inner three rings: the setting firms face. Outer five rings: what firms do. Wedge size = number of firms. Read each wedge from the centre outwards. ', foot);
     h('strong', null, 'Click a wedge to read about it.', note);
     h('div', 'db-source', 'Based on GS4S Policy brief no. 4.', foot);
@@ -338,7 +339,7 @@
         });
       });
       body.removeChild(probe);
-      body.style.minHeight = Math.ceil(Math.max(max, fig.getBoundingClientRect().height)) + 'px';
+      body.style.minHeight = Math.ceil(Math.max(max, mid.getBoundingClientRect().height)) + 'px';
     }
 
     var lastWidth = window.innerWidth, resizeTimer;
