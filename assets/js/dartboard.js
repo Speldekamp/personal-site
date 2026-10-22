@@ -244,9 +244,9 @@
         el('path', { d: sect(-HALF, HALF, R[k], R[k + 1]), fill: k < 3 ? P.lblSet : P.lblAct, stroke: P.lblLine, 'stroke-width': 1 }, gLabels);
         var y = CX - (R[k] + R[k + 1]) / 2;
         var two = RINGS[k][1] !== '';
-        el('text', { x: CX, y: two ? y - 2.5 : y + 4, 'text-anchor': 'middle', 'font-size': 11.5, 'font-weight': 600, fill: P.lblBold, 'aria-hidden': 'true' }, gLabels).textContent = RINGS[k][0];
+        el('text', { x: CX, y: two ? y + 0.5 : y + 4, 'text-anchor': 'middle', 'font-size': 11.5, 'font-weight': 600, fill: P.lblBold, 'aria-hidden': 'true' }, gLabels).textContent = RINGS[k][0];
         if (two) {
-          el('text', { x: CX, y: y + 9.5, 'text-anchor': 'middle', 'font-size': 10.5, fill: P.lblText, 'aria-hidden': 'true' }, gLabels).textContent = RINGS[k][1];
+          el('text', { x: CX, y: y + 12.5, 'text-anchor': 'middle', 'font-size': 10.5, fill: P.lblText, 'aria-hidden': 'true' }, gLabels).textContent = RINGS[k][1];
         }
       }
 
