@@ -16,16 +16,16 @@ Choose a sector, then click a wedge to see one pathway: the conditions the compa
 
 <noscript><p>Please enable JavaScript to see the dartboard tool.</p></noscript>
 
-## Download
-
-+ Forthcoming.
-
 ## Dartboard Tool
 
 {{< dartboard >}}
 
 ## About
 
-“On Target: Sector Pathways to Close Skill Shortages” was developed by Daniël Speldekamp and Ayse Saka-Helmhout, based on data from the policy brief “Closing Europe’s Skills Gap: Sector-Specific Lessons for EU Skills Policy” (Saka-Helmhout, Speldekamp, Rutten, Alvarado, Lavenex and Heyma, 2026). It is part of GS4S – Global Strategy for Skills, Migration and Development, a Horizon Europe project ([gs4s.eu](https://gs4s.eu/), [CORDIS](https://cordis.europa.eu/project/id/101132377)).
+The Dartboard Tool is based on the forthcoming publication “On Target: Sector Pathways to Close Skill Shortages”, and was developed by Daniël Speldekamp and Ayse Saka-Helmhout. The underlying data is from the policy brief “Closing Europe’s Skills Gap: Sector-Specific Lessons for EU Skills Policy” ([Saka-Helmhout et al., 2026](https://doi.org/10.5281/zenodo.20676416)). It is part of GS4S – Global Strategy for Skills, Migration and Development, a Horizon Europe project ([gs4s.eu](https://gs4s.eu/), [CORDIS](https://cordis.europa.eu/project/id/101132377)).
 
 Funded by the European Union under grant agreement No. 101132377. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Executive Agency (REA). Neither the European Union nor the granting authority can be held responsible for them.
+
+## Download
+
++ Forthcoming.
