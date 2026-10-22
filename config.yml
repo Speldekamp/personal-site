@@ -65,7 +65,7 @@ params:
     ShowWordCount: false
     UseHugoToc: true
     comments: false
-    math: true
+    math: false   # KaTeX loads only on pages whose front matter sets math: true (no page uses formulas yet)
     profileMode:
           enabled: true
           title: "Daniël Speldekamp"
