@@ -44,8 +44,8 @@ menu:
             icon: about
 
 params:
-    description: "Research papers, data, courses, code and writing by [Your Name]."
-    author: "[Your Name]"
+    description: "Research papers, data, courses, code and writing by Daniël Speldekamp, Assistant Professor at the Faculty of Economics and Business, University of Groningen."
+    author: "Daniël Speldekamp"
     DateFormat: January 2006
     defaultTheme: dark
     hideFooter: false
