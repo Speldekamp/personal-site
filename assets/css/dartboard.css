@@ -140,6 +140,7 @@
     max-width: 720px;
 }
 .dartboard .db-source { font-style: italic; }
+.dartboard .db-note strong { font-weight: 600; } /* "Click a wedge to read about it." */
 /* Less room: takeaway goes under the pathway text */
 @media (max-width: 1320px) {
     .dartboard .db-panel,

@@ -187,7 +187,8 @@
     right.setAttribute('aria-live', 'polite');
 
     var foot = h('div', 'db-foot', null, root);
-    h('div', 'db-note', 'Inner three rings: the setting firms face. Outer five rings: what firms do. Wedge size = number of firms. Read each wedge from the centre outwards. Click a wedge to read about it.', foot);
+    var note = h('div', 'db-note', 'Inner three rings: the setting firms face. Outer five rings: what firms do. Wedge size = number of firms. Read each wedge from the centre outwards. ', foot);
+    h('strong', null, 'Click a wedge to read about it.', note);
     h('div', 'db-source', 'Based on GS4S Policy brief no. 4.', foot);
 
     /* Draw the circle for the current sector and colours. */
