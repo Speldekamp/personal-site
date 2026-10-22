@@ -12,7 +12,7 @@ What works when companies can’t find the skilled people they need? This tool s
 
 Choose a sector, then click a wedge to see one pathway: the conditions the companies faced, the strategies they combined, and the lesson for policy. Larger wedges mean more companies took that route.
 
-▶&nbsp;[Watch the short video](https://www.youtube.com/watch?v=jOmTS71saEo)&nbsp;·&nbsp;[Read the policy brief](https://doi.org/10.5281/zenodo.20676417)&nbsp;·&nbsp;[More from GS4S](https://gs4s.eu/media/)
+▶&nbsp;[Watch the short video](https://www.youtube.com/watch?v=jOmTS71saEo)&nbsp;·&nbsp;[Read the policy brief](https://doi.org/10.5281/zenodo.20676416)&nbsp;·&nbsp;[More from GS4S](https://gs4s.eu/media/)
 
 <noscript><p>Please enable JavaScript to see the dartboard tool.</p></noscript>
 
