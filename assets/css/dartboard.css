@@ -136,7 +136,7 @@
 }
 .dartboard .db-note,
 .dartboard .db-source {
-    font-size: 17px;
+    font-size: 16px;
     color: var(--muted);
     max-width: 720px;
 }
